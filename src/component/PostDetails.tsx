@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams } from "react-router-dom";
 import { useGetpostQuery } from "../Redux/Api/getPost";
 import Modal from "./Modal";
@@ -9,7 +10,7 @@ const PostDetails = () => {
     <p>Loading</p>;
   }
 
-  const PostDetails = data?.data?.filter((post) => post?.headline === id);
+  const PostDetails = data?.data?.filter((post: any) => post?.headline === id);
   const { headline, news, blogimgurl, catgory } = PostDetails[0];
 
   return (
