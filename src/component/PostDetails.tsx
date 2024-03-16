@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetpostQuery } from "../Redux/Api/getPost";
+import Modal from "./Modal";
 
 const PostDetails = () => {
   const { id } = useParams();
@@ -8,7 +9,7 @@ const PostDetails = () => {
     <p>Loading</p>;
   }
 
-  const PostDetails = data?.data?.filter((post) => post.headline === id);
+  const PostDetails = data?.data?.filter((post) => post?.headline === id);
   const { headline, news, blogimgurl, catgory } = PostDetails[0];
 
   return (
@@ -25,12 +26,7 @@ const PostDetails = () => {
         </p>
         {/* <p className="text-gray-700 text-lg mb-2">Amount: {amount}</p> */}
         <p className="text-gray-700 text-lg lg:w-8/12 mb-4">{news}</p>
-        <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-          onclick="openConfirmationModal()"
-        >
-          Donate Now
-        </button>
+        <Modal name="Donate" details="are you sure want Donate?" />
       </div>
     </div>
   );

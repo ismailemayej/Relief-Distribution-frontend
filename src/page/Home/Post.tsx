@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useGetpostQuery } from "../../Redux/Api/getPost";
 import Heading from "../../component/Heading";
 type TNews = {
@@ -8,24 +8,27 @@ type TNews = {
 };
 
 const Post = () => {
-  const { data, isLoading } = useGetpostQuery("");
+  const { data, isLoading, isSuccess } = useGetpostQuery("");
   if (isLoading) {
     <p>Loading</p>;
   }
+
   return (
     <>
       <Heading title="RELIF GOOD POST" subTitle="" />
-      <div className="flex justify-between">
-        <span></span>
-        <Link
-          className="mr-3 bg-yellow-500 px-6 hover:bg-orange-900 text-white rounded-xl"
-          to="/relief-goods"
-        >
-          See All Post
-        </Link>
-      </div>
+      {isSuccess && (
+        <div className="flex justify-between">
+          <span></span>
+          <Link
+            className="mr-3 bg-yellow-500 px-6 hover:bg-orange-900 text-white rounded-xl"
+            to="/relief-goods"
+          >
+            See All Post
+          </Link>
+        </div>
+      )}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2">
-        {data?.data?.map((news: TNews[]) => (
+        {data?.data?.slice(0, 6)?.map((news: TNews[]) => (
           <div className="w-full lg:max-w-sm bg-white border border-gray-200 rounded-t-xl shadow dark:bg-gray-800 dark:border-gray-700">
             <Link to="#">
               <img

@@ -1,28 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { TUser } from "../types/Types";
 import { RootState } from "./store";
-
-const initialState = {
-  username: null,
+type TAuthState = {
+  email: null | TUser;
+  password: null | TUser;
+  name: null | TUser;
+};
+const initialState: TAuthState = {
+  name: null,
   email: null,
   password: null,
 };
 
-const AuthSlice = createSlice({
-  name: "user",
+const authSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
     setUser: (state, action) => {
-      const { username, email, password } = action.payload;
+      const { email, password } = action.payload;
       state.email = email;
-      state.username = username;
       state.password = password;
     },
-    logOut: (state) => {
-      (state.email = null), (state.username = null);
+    logout: (state) => {
+      state.email = null;
+      state.password = null;
     },
   },
 });
 
-export const { setUser, logOut } = AuthSlice.actions;
-export default AuthSlice.reducer;
-export const CurrentUser = (state: RootState) => state.auth.email;
+export const { setUser, logout } = authSlice.actions;
+export default authSlice.reducer;
+export const registerUser = (state: RootState) => state.auth;
