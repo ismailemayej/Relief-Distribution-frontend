@@ -4,7 +4,7 @@ const getGallery = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getGalleryData: builder.query({
       query: () => ({
-        url: "/eventitem",
+        url: "/api/v1/gellery",
         method: "GET",
       }),
     }),

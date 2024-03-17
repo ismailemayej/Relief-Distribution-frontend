@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { motion } from "framer-motion";
 import Heading from "../../component/Heading";
 import { useGetGalleryDataQuery } from "../../Redux/Api/getGalleryImage";
@@ -7,13 +8,13 @@ const Gallery = () => {
     <p>Loading...</p>;
   }
 
-  const styles = "bg-white border rounded-xl  lg:p-1 p-1";
+  const styles = "bg-white-600 border rounded-xl  lg:p-1 p-1";
   return (
     <motion.div>
       <Heading title="GALLERY" subTitle="" />
       <>
         <div className="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 w-full lg:auto-rows-[300px] gap-1 lg:my-3">
-          {data?.data?.map((item: TEventItems, i: number) => (
+          {data?.data?.map((item: any, i: number) => (
             <div
               key={i}
               className={`${styles} ${
@@ -23,7 +24,7 @@ const Gallery = () => {
               <div className="w-full h-[100%]">
                 <img
                   className="transition hover:scale-105 hover:delay-75 w-[100%] h-[100%] object-cover rounded-xl"
-                  src={item.eventimgurl}
+                  src={item.image}
                   alt={item.EventName}
                 />
               </div>

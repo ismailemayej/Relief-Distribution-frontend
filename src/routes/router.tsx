@@ -9,6 +9,7 @@ import PieChat from "../page/Dashboard/PieChat";
 import AllSupplyPost from "../page/Dashboard/AllSupplyPost";
 import UserDashboard from "../page/Dashboard/UserDashboard";
 import CreateSupply from "../component/CreateSupply";
+import ProtectedRoute from "../layout/ProtectRoute";
 
 export const router = createBrowserRouter([
   {
@@ -30,11 +31,32 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <UserDashboard />,
+    element: (
+      <ProtectedRoute>
+        <UserDashboard />
+      </ProtectedRoute>
+    ),
     children: [
-      { path: "/dashboard/piechart", element: <PieChat /> },
-      { path: "/dashboard/allsupplypost", element: <AllSupplyPost /> },
-      { path: "/dashboard/create-supply", element: <CreateSupply /> },
+      {
+        path: "/dashboard/piechart",
+        element: (
+          <ProtectedRoute>
+            <PieChat />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/dashboard/allsupplypost",
+        element: <AllSupplyPost />,
+      },
+      {
+        path: "/dashboard/create-supply",
+        element: (
+          <ProtectedRoute>
+            <CreateSupply />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
 ]);

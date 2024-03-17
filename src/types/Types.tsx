@@ -9,3 +9,10 @@ export type FormInputs = {
   email: string;
   password: string;
 };
+export type FormInputs2 = {
+  title: string;
+  image: string;
+  amount: string;
+  category: string;
+  description: string;
+};

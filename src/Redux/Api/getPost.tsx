@@ -1,10 +1,11 @@
 import baseApi from "./baseApi";
+import baseApi2 from "./baseApi2";
 
 const getPostData = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getpost: builder.query({
       query: () => ({
-        url: "/blogandnews",
+        url: "/api/v1/reliefpost",
         method: "GET",
       }),
     }),

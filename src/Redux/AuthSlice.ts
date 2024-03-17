@@ -17,17 +17,19 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      const { email, password } = action.payload;
+      const { email, password, name } = action.payload;
       state.email = email;
       state.password = password;
+      state.name = name;
     },
     logout: (state) => {
       state.email = null;
       state.password = null;
+      state.name = null;
     },
   },
 });
 
 export const { setUser, logout } = authSlice.actions;
 export default authSlice.reducer;
-export const registerUser = (state: RootState) => state.auth;
+export const userDetails = (state: RootState) => state.auth;

@@ -1,14 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
-
-const user = "i";
+import { Link, useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
+import { logout, userDetails } from "../../Redux/AuthSlice";
+import { toast } from "sonner";
 
 export default function Navbar() {
+  // const user = null;
+  const user = useAppSelector(userDetails);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    const user = null;
-    console.log(user);
+    if (user && user.email) {
+      dispatch(logout());
+      navigate("/");
+      toast.success("Logout Successfully");
+    }
   };
 
   return (
@@ -41,7 +51,7 @@ export default function Navbar() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {user && (
+                    {user?.email && (
                       <Link
                         to="/dashboard"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
@@ -58,6 +68,7 @@ export default function Navbar() {
                     </Link>
                   </div>
                 </div>
+                {/* <p className="text-white"> {user.email}</p> */}
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
@@ -72,7 +83,7 @@ export default function Navbar() {
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      {user ? (
+                      {user?.email ? (
                         <div>
                           <button
                             onClick={handleLogout}
@@ -106,7 +117,7 @@ export default function Navbar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {user && (
+              {user?.email && (
                 <Link
                   to="/dashboard"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
@@ -119,7 +130,7 @@ export default function Navbar() {
                 to="/relief-goods"
                 className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
               >
-                All relif Goods
+                All relief Goods
               </Link>
             </div>
           </Disclosure.Panel>

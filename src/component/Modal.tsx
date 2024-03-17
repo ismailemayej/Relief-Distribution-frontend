@@ -1,11 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-type TModal = {
-  name: string;
-  details: string;
-};
 
-export default function Modal({ name, details }: TModal) {
+export default function Modal() {
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const handldesurebutton = () => [
@@ -19,7 +15,7 @@ export default function Modal({ name, details }: TModal) {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        {name}
+        Donate
       </button>
       {showModal ? (
         <>
@@ -29,7 +25,22 @@ export default function Modal({ name, details }: TModal) {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    {details}
+                    We are writing on behalf of our company, Glasses for Kids.
+                    We are a non-profit organization that works to bring glasses
+                    to children in developing countries Many of the children we
+                    help cannot go to school because of poor eyesight, so by
+                    giving them the gift of sight, we also give the gift of
+                    education. We fell short of our fundraising goal this year,
+                    and cannot serve as many children as we would like. With
+                    your help, we can reach nearly 1,000 children this year.
+                    Would you consider donating to our organization? As little
+                    as $5 helps put a pair of glasses in the hands of a child
+                    who needs them. What can you contribute? Thank you for
+                    taking the time to read this letter, and we hope you will
+                    consider donating your time or money to our cause. The kids
+                    need you. Sincerely, Emma Jones Program Director Glasses for
+                    Kids Just click her button and donate : are your sure want
+                    to donate?
                   </p>
                 </div>
                 {/*footer*/}

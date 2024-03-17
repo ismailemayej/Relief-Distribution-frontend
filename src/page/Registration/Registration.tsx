@@ -9,7 +9,8 @@ const Registration = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>();
-  const [Register] = useRegisterMutation();
+  const [Register, { data }] = useRegisterMutation();
+  console.log(data, "data");
 
   const onSubmit = (data: FormInputs) => {
     try {
@@ -18,8 +19,8 @@ const Registration = () => {
         email: data.email,
         password: data.password,
       };
-
       Register(userInfo);
+
       toast.success("Register successfully");
     } catch (error) {
       console.log(error);
