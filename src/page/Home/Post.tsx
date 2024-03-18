@@ -6,7 +6,7 @@ import Heading from "../../component/Heading";
 const Post = () => {
   const { data, isLoading, isSuccess } = useGetpostQuery("");
   if (isLoading) {
-    <p>Loading</p>;
+    return <p>Loading</p>;
   }
 
   return (

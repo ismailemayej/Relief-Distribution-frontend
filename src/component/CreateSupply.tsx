@@ -11,7 +11,7 @@ const CreateSupply = () => {
     formState: { errors },
   } = useForm<FormInputs2>();
 
-  const [CrateSupply] = useCrateSupplyMutation();
+  const [CrateSupply, { isSuccess }] = useCrateSupplyMutation();
 
   const onSubmit = (data: FormInputs2) => {
     try {
@@ -23,10 +23,11 @@ const CreateSupply = () => {
         category: data.category,
       };
       CrateSupply(SupplyPost);
-      toast.success("Register successfully");
+      navigate("/dashboard/allsupplypost");
+      toast.success("Supply Create successfully");
     } catch (error) {
       console.log(error);
-      toast.error("samethis is wrong");
+      toast.error("something is wrong");
     }
   };
   const navigate = useNavigate();
@@ -135,7 +136,6 @@ const CreateSupply = () => {
 
           <div>
             <button
-              onClick={() => navigate("/dashboard/allsupplypost")}
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >

@@ -1,15 +1,15 @@
-import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { FormInputs } from "../../types/Types";
 import { toast } from "sonner";
 import { useLoginMutation } from "../../Redux/Api/AuthLogin/AuthLogin";
 import { setUser } from "../../Redux/AuthSlice";
 import { useAppDispatch } from "../../Redux/Hooks";
+import { useForm } from "react-hook-form";
 const Login = () => {
   const [Login, { data, isLoading }] = useLoginMutation();
   console.log(data, "login data");
   if (isLoading) {
-    <p>Loading....</p>;
+    return <p>Loading....</p>;
   }
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-    await Login(userinfo);
+    await Login(userinfo).unwrap();
     navigate("/");
     dispatch(setUser(userinfo));
     toast.success("Successfully Login");

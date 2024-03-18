@@ -1,16 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { DeleteOutlined } from "@ant-design/icons";
+import EditModal from "../../component/EditModal";
 import { FormInputs2 } from "../../types/Types";
 import { useGetSupplyQuery } from "../AllPost/SupplyApi/AllSupplyApi";
-
+import { Link } from "react-router-dom";
 const AllSupplyPost = () => {
   const { data, isLoading } = useGetSupplyQuery("");
   if (isLoading) {
-    <p>Loading</p>;
+    return <p>Loading</p>;
   }
+
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div className="relative overflow-x-auto shadow-xl sm:rounded-xl">
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead className="text-xs text-gray-700 uppercase border-b-slate-900 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" className="px-16 py-3">
               <span className="sr-only">Image</span>
@@ -31,7 +33,7 @@ const AllSupplyPost = () => {
         </thead>
         {data?.data?.map((supplypost: FormInputs2) => (
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr className=" bg-slate-100 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-200 hover:rounded-xl dark:hover:bg-gray-600">
               <td className="p-4">
                 <img
                   src={supplypost.image}
@@ -49,8 +51,8 @@ const AllSupplyPost = () => {
                 {supplypost.amount}
               </td>
               <td className="px-6 py-4">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="font-medium text-red-600 dark:text-red-500 hover:underline"
                 >
                   <div
@@ -61,16 +63,16 @@ const AllSupplyPost = () => {
                       type="button"
                       className="px-3 py-1 rounded-s-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
                     >
-                      Edit
+                      <EditModal props={supplypost} />
                     </button>
                     <button
                       type="button"
                       className="px-3 py-1 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-xl hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
                     >
-                      Delete
+                      <DeleteOutlined />
                     </button>
                   </div>
-                </a>
+                </Link>
               </td>
             </tr>
           </tbody>

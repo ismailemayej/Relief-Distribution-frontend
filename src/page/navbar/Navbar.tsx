@@ -8,11 +8,9 @@ import { logout, userDetails } from "../../Redux/AuthSlice";
 import { toast } from "sonner";
 
 export default function Navbar() {
-  // const user = null;
   const user = useAppSelector(userDetails);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
   const handleLogout = () => {
     if (user && user.email) {
       dispatch(logout());
@@ -53,7 +51,7 @@ export default function Navbar() {
                   <div className="flex space-x-4">
                     {user?.email && (
                       <Link
-                        to="/dashboard"
+                        to="/dashboard/piechart"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                       >
                         Dashboard
@@ -68,8 +66,8 @@ export default function Navbar() {
                     </Link>
                   </div>
                 </div>
-                {/* <p className="text-white"> {user.email}</p> */}
               </div>
+
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
@@ -119,7 +117,7 @@ export default function Navbar() {
             <div className="space-y-1 px-2 pb-3 pt-2">
               {user?.email && (
                 <Link
-                  to="/dashboard"
+                  to="/dashboard/piechart"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Dashboard

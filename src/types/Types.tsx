@@ -15,4 +15,5 @@ export type FormInputs2 = {
   amount: string;
   category: string;
   description: string;
+  _id: number;
 };

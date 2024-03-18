@@ -6,7 +6,7 @@ const PostDetails = () => {
   const { id } = useParams();
   const { data, isLoading } = useGetpostQuery("");
   if (isLoading) {
-    <p>Loading</p>;
+    return <p>Loading</p>;
   }
 
   const PostDetails = data?.data?.filter((post: any) => post?.title === id);
@@ -25,7 +25,6 @@ const PostDetails = () => {
         <p className="text-gray-700 text-lg font-semibold mb-2">
           Category:{category}
         </p>
-        {/* <p className="text-gray-700 text-lg mb-2">Amount: {amount}</p> */}
         <p className="text-gray-700 text-lg lg:w-8/12 mb-4">{description}</p>
         <Modal />
       </div>
