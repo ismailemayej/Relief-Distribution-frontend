@@ -1,8 +1,19 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
-const user = "i";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { useAppDispatch } from "../Redux/Hooks";
+import { logout } from "../Redux/AuthSlice";
+
 const DashboradNavbar = () => {
+  const user = "i";
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
+    toast.success("Logout Successfully");
+  };
   return (
     <Disclosure as="nav" className="bg-gray-800">
       <>
@@ -20,15 +31,6 @@ const DashboradNavbar = () => {
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  {user && (
-                    <Link
-                      to="/dashboard"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                    >
-                      Dashboard
-                    </Link>
-                  )}
-
                   <Link
                     to="/relief-goods"
                     className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
@@ -50,21 +52,16 @@ const DashboradNavbar = () => {
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">
                 <div>
-                  <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    {user ? (
-                      <div>
-                        <button className="font-semibold text-slate-300">
-                          Logout
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="hover:bg-slate-700 hover:w-full hover:px-4 px-4 hover:rounded-xl hover:py-2">
-                        <Link className=" text-white" to="/login">
-                          Login or Register
-                        </Link>
-                      </div>
-                    )}
-                  </Menu.Button>
+                  <div className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <div>
+                      <button
+                        onClick={handleLogout}
+                        className="font-semibold text-white rounded-xl bg-indigo-900 hover:bg-indigo-600 px-5 py-2"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <Transition
                   as={Fragment}

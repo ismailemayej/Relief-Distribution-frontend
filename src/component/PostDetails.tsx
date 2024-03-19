@@ -1,17 +1,35 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetpostQuery } from "../Redux/Api/getPost";
-import Modal from "./Modal";
+import Swal from "sweetalert2";
 const PostDetails = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { data, isLoading } = useGetpostQuery("");
   if (isLoading) {
     return <p>Loading</p>;
   }
+  const descriptionn =
+    "We are writing on behalf of our company, Glasses for Kids, We are writing on behalf of our company, Glasses for Kids.";
+  const handleModal = () => {
+    Swal.fire({
+      text: descriptionn,
+      title: "Are you sure for Donate?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "I am Sure!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/dashboard/piechart");
+      }
+    });
+  };
 
   const PostDetails = data?.data?.filter((post: any) => post?.title === id);
   console.log(data, "data");
-  const { title, description, image, category } = PostDetails[0];
+  const { title, description, image, category, amount } = PostDetails[0];
 
   return (
     <div>
@@ -25,8 +43,15 @@ const PostDetails = () => {
         <p className="text-gray-700 text-lg font-semibold mb-2">
           Category:{category}
         </p>
+        <p className="text-xl font-semibold">Amount: {amount}</p>
         <p className="text-gray-700 text-lg lg:w-8/12 mb-4">{description}</p>
-        <Modal />
+        <button
+          className="bg-yellow-600 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button"
+          onClick={handleModal}
+        >
+          Donate
+        </button>
       </div>
     </div>
   );

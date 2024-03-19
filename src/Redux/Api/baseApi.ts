@@ -4,5 +4,6 @@ const baseApi = createApi({
     baseUrl: "http://localhost:5000",
   }),
   endpoints: () => ({}),
+  tagTypes: ["homepost", "supply"],
 });
 export default baseApi;

@@ -4,15 +4,19 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { FormInputs2 } from "../types/Types";
 import { useCrateSupplyMutation } from "../page/AllPost/SupplyApi/CreateSupplyApi";
+import Spinner from "./Spinner";
 const CreateSupply = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs2>();
+  const navigate = useNavigate();
 
-  const [CrateSupply, { isSuccess }] = useCrateSupplyMutation();
-
+  const [CrateSupply, { isLoading }] = useCrateSupplyMutation();
+  if (isLoading) {
+    return <Spinner />;
+  }
   const onSubmit = (data: FormInputs2) => {
     try {
       const SupplyPost = {
@@ -30,7 +34,6 @@ const CreateSupply = () => {
       toast.error("something is wrong");
     }
   };
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen flex border items-center justify-center bg-gray-50 px-6 lg:px-8">

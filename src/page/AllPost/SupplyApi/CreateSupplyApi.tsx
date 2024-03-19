@@ -7,6 +7,14 @@ const authApi1 = baseApi.injectEndpoints({
         method: "POST",
         body: supply,
       }),
+      invalidatesTags: ["supply"],
+    }),
+    UpdateSupply: builder.mutation({
+      query: (id, body) => ({
+        url: `/api/v1/${id}`,
+        body,
+      }),
+      invalidatesTags: ["supply"],
     }),
   }),
 });

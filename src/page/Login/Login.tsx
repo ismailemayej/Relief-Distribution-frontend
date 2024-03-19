@@ -5,12 +5,12 @@ import { useLoginMutation } from "../../Redux/Api/AuthLogin/AuthLogin";
 import { setUser } from "../../Redux/AuthSlice";
 import { useAppDispatch } from "../../Redux/Hooks";
 import { useForm } from "react-hook-form";
+import Spinner from "../../component/Spinner";
+
 const Login = () => {
-  const [Login, { data, isLoading }] = useLoginMutation();
+  const [login, { data, isLoading }] = useLoginMutation();
   console.log(data, "login data");
-  if (isLoading) {
-    return <p>Loading....</p>;
-  }
+
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const {
@@ -24,11 +24,23 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-    await Login(userinfo).unwrap();
-    navigate("/");
-    dispatch(setUser(userinfo));
-    toast.success("Successfully Login");
+
+    try {
+      await login(userinfo).unwrap();
+      navigate("/");
+      dispatch(setUser(userinfo));
+      // Assuming you're using react-toastify, you need to import it correctly
+      toast.success("Successfully Login");
+    } catch (error) {
+      console.error("Login error:", error);
+      // Handle login error here, for example:
+      toast.error("Failed to login. Please try again.");
+    }
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="min-h-screen flex border items-center justify-center bg-gray-50 px-6 lg:px-8">
@@ -50,6 +62,7 @@ const Login = () => {
                 name="email"
                 type="email"
                 autoComplete="email"
+                defaultValue="assainment@gamil.com"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                 placeholder="Email address"
@@ -69,6 +82,7 @@ const Login = () => {
                 type="password"
                 autoComplete="current-password"
                 required
+                defaultValue="12345"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                 placeholder="Password"
               />

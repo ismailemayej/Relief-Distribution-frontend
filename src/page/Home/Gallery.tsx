@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Heading from "../../component/Heading";
 import { useGetGalleryDataQuery } from "../../Redux/Api/getGalleryImage";
+
 const Gallery = () => {
   const { data, isLoading } = useGetGalleryDataQuery("");
   if (isLoading) {

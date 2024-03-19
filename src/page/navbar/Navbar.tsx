@@ -12,11 +12,9 @@ export default function Navbar() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
-    if (user && user.email) {
-      dispatch(logout());
-      navigate("/");
-      toast.success("Logout Successfully");
-    }
+    dispatch(logout());
+    navigate("/");
+    toast.success("Logout Successfully");
   };
 
   return (
@@ -80,7 +78,7 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <div className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       {user?.email ? (
                         <div>
                           <button
@@ -97,7 +95,7 @@ export default function Navbar() {
                           </Link>
                         </div>
                       )}
-                    </Menu.Button>
+                    </div>
                   </div>
                   <Transition
                     as={Fragment}
