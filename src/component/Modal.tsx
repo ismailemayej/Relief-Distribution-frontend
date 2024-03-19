@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Modal() {
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
+
   const handldesurebutton = () => [
     setShowModal(false),
     navigate("/dashboard/piechart"),

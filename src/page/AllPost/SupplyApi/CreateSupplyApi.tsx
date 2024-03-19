@@ -9,13 +9,23 @@ const authApi1 = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["supply"],
     }),
+    getSingleSupply: builder.query({
+      query: (id) => ({
+        url: `/api/v1/supplys/${id}`,
+      }),
+    }),
     UpdateSupply: builder.mutation({
-      query: (id, body) => ({
-        url: `/api/v1/${id}`,
+      query: ({ id, body }) => ({
+        url: `/api/v1/supplys/${id}`,
+        method: "PUT",
         body,
       }),
       invalidatesTags: ["supply"],
     }),
   }),
 });
-export const { useCrateSupplyMutation } = authApi1;
+export const {
+  useCrateSupplyMutation,
+  useGetSingleSupplyQuery,
+  useUpdateSupplyMutation,
+} = authApi1;
