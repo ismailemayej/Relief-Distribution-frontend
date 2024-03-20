@@ -6,6 +6,10 @@ interface DataItem {
   name: string;
   value: number;
 }
+interface SupplyData {
+  amount: string;
+  data: any;
+}
 interface PieChartProps {
   data01: DataItem[];
 }
@@ -15,15 +19,18 @@ const PieCharts: React.FC<PieChartProps> = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  const postData = data?.data;
+
+  const postData: SupplyData[] = data?.data ?? [];
   const totalData = postData.length;
   const totalAmout = postData.reduce(
     (prevalue: number, curValue: { amount: string }) => {
-      return prevalue + parseInt(curValue.amount);
+      const sTn = prevalue + parseInt(curValue.amount);
+      const total = sTn.toFixed(2);
+      return Number(total);
     },
     0
   );
-  const avarage = totalAmout / totalData;
+  const avarage = (totalAmout / totalData).toFixed(2);
 
   const piedata = [
     { name: "Total Data", value: totalData },

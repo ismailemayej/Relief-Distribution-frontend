@@ -8,19 +8,19 @@ const Footer = () => {
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              © 2023{" "}
+              © 2024
               <Link to="https://flowbite.com/" className="hover:underline">
-                Flowbite™
+                RD Group™
               </Link>
               . All Rights Reserved.
             </span>
             <div className="flex mt-4 sm:justify-center sm:mt-0">
               <Link
                 to="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                className="p-2 border-indigo-700 border-2 bg-orange-600 text-gray-500 rounded-full hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -36,10 +36,10 @@ const Footer = () => {
               </Link>
               <Link
                 to="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className=" bg-orange-600 rounded-full p-2 text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -51,10 +51,10 @@ const Footer = () => {
               </Link>
               <Link
                 to="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className="p-2 bg-orange-600 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -70,10 +70,10 @@ const Footer = () => {
               </Link>
               <Link
                 to="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className="p-2 bg-orange-600 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -89,10 +89,10 @@ const Footer = () => {
               </Link>
               <Link
                 to="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+                className="p-2 bg-orange-600 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-4 h-4 text-black"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
