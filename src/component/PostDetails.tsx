@@ -50,7 +50,9 @@ const PostDetails = () => {
         </p>
         {/* Donate amount */}
         <p className="text-xl font-semibold">Amount: ${amount}</p>
-        <p className="text-gray-700 text-lg lg:w-8/12 mb-4">{description}</p>
+        <p className="text-gray-700 text-lg lg:w-8/12 mb-4">
+          <span className="font-semibold">Description:</span> {description}
+        </p>
         <button
           className="bg-yellow-600 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"

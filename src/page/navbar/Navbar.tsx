@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { logout, userDetails } from "../../Redux/AuthSlice";
 import { toast } from "sonner";
+import logo from "../../assets/relief donation.png";
 
 export default function Navbar() {
   const user = useAppSelector(userDetails);
@@ -39,9 +40,9 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                      alt="Your Company"
+                      className="h-10 w-auto"
+                      src={logo}
+                      alt="relief Donation"
                     />
                   </Link>
                 </div>

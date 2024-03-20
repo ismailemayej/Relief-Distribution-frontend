@@ -24,7 +24,6 @@ const HeroSection = () => {
           className=""
         >
           <span className="font-bold text-yellow-700 text-2xl">
-            {" "}
             OUR MISSION & GOALS
           </span>
           <br />
@@ -48,7 +47,7 @@ const HeroSection = () => {
           imperdiet sed id elementum. Quam vel aliquam sit vulputate. Faucibus
           nec gravida ipsum pulvinar vel non.
         </motion.p>
-        <Link to="/explore">
+        <Link to="/">
           <button className="lg:px-20 hover:bg-orange-800 hover:text-white hover:animate-in lg:py-2 rounded-xl py-3 px-16 lg:mb-1 mb-3 bg-yellow-500 text-black">
             Exploer
           </button>

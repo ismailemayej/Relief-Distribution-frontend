@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useAppDispatch } from "../Redux/Hooks";
 import { logout } from "../Redux/AuthSlice";
+import logo from "../assets/relief donation.png";
 
 const DashboradNavbar = () => {
   const user = "i";
@@ -22,11 +23,7 @@ const DashboradNavbar = () => {
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <div className="flex flex-shrink-0 items-center">
                 <Link to="/">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
+                  <img className="h-10 w-auto" src={logo} alt="Your Company" />
                 </Link>
               </div>
               <div className="hidden sm:ml-6 sm:block">
