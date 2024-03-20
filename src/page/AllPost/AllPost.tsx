@@ -33,7 +33,7 @@ const ALLPost = () => {
               </span>
               <div className="flex items-center justify-between">
                 <span className="lg:text-md text-lg font-bold text-gray-900 dark:text-white">
-                  Donate : {news.amount}
+                  Donate : ${news.amount}
                 </span>
                 <Link
                   to={`/relief-goods/${news.title}`}

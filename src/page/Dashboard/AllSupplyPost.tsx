@@ -49,7 +49,7 @@ const AllSupplyPost = () => {
                 Category
               </th>
               <th scope="col" className="px-6 py-3">
-                Price
+                Amount
               </th>
               <th scope="col" className="px-6 py-3">
                 Action
@@ -76,7 +76,7 @@ const AllSupplyPost = () => {
                   <div className="flex items-center">{supplypost.category}</div>
                 </td>
                 <td className="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                  {supplypost.amount}
+                  ${supplypost.amount}
                 </td>
                 <td className="px-6 py-4">
                   <div

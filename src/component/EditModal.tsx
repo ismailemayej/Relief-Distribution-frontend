@@ -22,10 +22,6 @@ export default function EditModal({ props }: any) {
     formState: { errors },
   } = useForm<FormInputs2>();
 
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
-
   const handleUpdate = async (data: FormInputs2) => {
     try {
       const supplyPost = {
@@ -56,14 +52,14 @@ export default function EditModal({ props }: any) {
       </button>
       {showModal && (
         <>
-          <div className="justify-center items-center flex w-full overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative w-auto my-6 max-w-3xl">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-96 bg-white outline-none focus:outline-none">
+          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+            <div className="relative  w-auto my-6 max-w-3xl">
+              <div className="border-0 rounded-xl shadow-lg relative p-3 lg:w-96 w-80 bg-white outline-none focus:outline-none">
                 <form
-                  className="mt-8 space-y-6"
+                  className="mt-8 space-y-6 mx-auto"
                   onSubmit={handleSubmit(handleUpdate)}
                 >
-                  <div className="rounded-xl shadow-sm-space-y-px">
+                  <div className="rounded-xl shadow-sm-space-y-px w-[100%]">
                     <div>
                       <label htmlFor="title" className="sr-only">
                         title
@@ -133,7 +129,7 @@ export default function EditModal({ props }: any) {
                         {...register("amount", { required: true })}
                         id="amount"
                         name="amount"
-                        type="amount"
+                        type="number"
                         autoComplete="amount"
                         defaultValue={data.amount}
                         required
@@ -156,7 +152,7 @@ export default function EditModal({ props }: any) {
                         autoComplete="description"
                         defaultValue={data.description}
                         required
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                        className=" appearance-none rounded-none relative block w-full px-1 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                         placeholder="description"
                       />
                       {errors.description && (

@@ -3,7 +3,7 @@ const getPostData = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getpost: builder.query({
       query: () => ({
-        url: "/api/v1/reliefpost",
+        url: "/api/v1/supplys",
         method: "GET",
       }),
       providesTags: ["homepost"],

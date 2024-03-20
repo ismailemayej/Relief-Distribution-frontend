@@ -5,11 +5,11 @@ import PostDetails from "../component/PostDetails";
 import ALLPost from "../page/AllPost/AllPost";
 import Login from "../page/Login/Login";
 import Registration from "../page/Registration/Registration";
-import PieChat from "../page/Dashboard/PieChat";
 import AllSupplyPost from "../page/Dashboard/AllSupplyPost";
 import UserDashboard from "../page/Dashboard/UserDashboard";
 import CreateSupply from "../component/CreateSupply";
 import ProtectedRoute from "../layout/ProtectRoute";
+import PieCharts from "../page/Dashboard/PieChat";
 
 export const router = createBrowserRouter([
   {
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/piechart",
         element: (
           <ProtectedRoute>
-            <PieChat />
+            <PieCharts data01={[]} />
           </ProtectedRoute>
         ),
       },
