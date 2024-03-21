@@ -46,8 +46,8 @@ const UserDashboard: React.FC = () => {
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
       >
-        <div className="demo-logo-vertical text-white text-center text-2 font-semibold">
-          user name
+        <div className="demo-logo-vertical text-white text-center lg:text-xl text-1 font-semibold">
+          RD
         </div>
 
         <Menu

@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-white dark:bg-gray-900 lg:mb-8">
+      <footer className="py-5  h-6/12 bg-gray-950 flex items-center dark:bg-gray-900 text-white">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-0">
-          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            <span className="text-sm text-white sm:text-center dark:text-gray-400">
               © 2024
-              <Link to="https://flowbite.com/" className="hover:underline">
+              <Link to="/" className="hover:underline">
                 RD Group™
               </Link>
               . All Rights Reserved.
