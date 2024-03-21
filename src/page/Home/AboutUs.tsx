@@ -57,7 +57,9 @@ const AboutUs = () => {
           </AccordionHeader>
           <AccordionBody
             className={`border-b-0 transition-colors border px-3 text-md ${
-              open === 2 ? "text-blue-900 hover:!text-blue-700" : "hidden"
+              open === 2
+                ? "text-blue-900 hover:!text-blue-700 h-screen"
+                : "hidden"
             }`}
           >
             Efficiency: We strive to enhance the efficiency of relief operations
