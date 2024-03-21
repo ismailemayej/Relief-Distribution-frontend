@@ -5,8 +5,6 @@ import { userDetails } from "../Redux/AuthSlice";
 import { useAppSelector } from "../Redux/Hooks";
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const user: any = useAppSelector(userDetails);
-  console.log(user, "protected route");
-
   if (user?.email === null) {
     return <Navigate to="/login" replace={true} />;
   }
