@@ -1,13 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { DeleteOutlined } from "@ant-design/icons";
 import EditModal from "../../component/EditModal";
-import { FormInputs2 } from "../../types/Types";
 import {
   useDeleteSupplyMutation,
   useGetSupplyQuery,
 } from "../AllPost/SupplyApi/AllSupplyApi";
-import Spinner from "../../component/Spinner";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Spinner } from "@material-tailwind/react";
 
 const AllSupplyPost = () => {
   const { data, isLoading } = useGetSupplyQuery("");
@@ -15,23 +15,23 @@ const AllSupplyPost = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  const handleDelete = (id: string) => {
-    // -------------------------------
+  const handleDelete = (id: any) => {
     Swal.fire({
       title: "Are you sure for delete?",
-      text: "You won't be able to revert this!",
+      text: "You won't be able to delete this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
+    }).then((result: { isConfirmed: boolean }) => {
       if (result.isConfirmed) {
-        deleteSupply(id._id);
+        deleteSupply(id);
+        console.log("this is id from delete=>", typeof id);
       }
     });
-    // -------------------------------
   };
+
   const isData = data?.data.length > 0;
   return (
     <div className="relative overflow-x-auto shadow-xl h-screen sm:rounded-xl">
@@ -57,7 +57,7 @@ const AllSupplyPost = () => {
             </tr>
           </thead>
           <tbody>
-            {data?.data?.map((supplypost: FormInputs2) => (
+            {data?.data.map((supplypost: any) => (
               <tr
                 key={supplypost._id}
                 className=" bg-white hover:border-x-4 px-4 border-b dark:bg-gray-800 dark:border-gray-700 hover:rounded-xl dark:hover:bg-gray-600"
@@ -90,7 +90,7 @@ const AllSupplyPost = () => {
                       <EditModal props={supplypost} />
                     </button>
                     <button
-                      onClick={() => handleDelete(supplypost)}
+                      onClick={() => handleDelete(supplypost._id)}
                       type="button"
                       className="px-3 py-1 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-xl hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
                     >

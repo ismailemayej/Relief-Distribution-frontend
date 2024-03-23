@@ -16,4 +16,5 @@ export type FormInputs2 = {
   category: string;
   description: string;
   _id: number | undefined;
+  id: number | undefined;
 };

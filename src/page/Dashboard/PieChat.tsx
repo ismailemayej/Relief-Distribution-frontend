@@ -1,26 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 import { useGetSupplyQuery } from "../AllPost/SupplyApi/AllSupplyApi";
-import Spinner from "../../component/Spinner";
-interface DataItem {
-  name: string;
-  value: number;
-}
-interface SupplyData {
-  amount: string;
-  data: any;
-}
-interface PieChartProps {
-  data01: DataItem[];
-}
-
-const PieCharts: React.FC<PieChartProps> = () => {
+const PieCharts = () => {
   const { data, isLoading } = useGetSupplyQuery("");
-  if (isLoading) {
-    return <Spinner />;
-  }
+  if (isLoading) return <div>loading...</div>;
 
-  const postData: SupplyData[] = data?.data ?? [];
+  const postData = data?.data;
   const totalData = postData.length;
   const totalAmout = postData.reduce(
     (prevalue: number, curValue: { amount: string }) => {
@@ -31,7 +16,6 @@ const PieCharts: React.FC<PieChartProps> = () => {
     0
   );
   const avarage = (totalAmout / totalData).toFixed(2);
-
   const piedata = [
     { name: "Total Data", value: totalData },
     { name: "Total Amount", value: totalAmout },

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import baseApi from "../../../Redux/Api/baseApi";
 
 interface DeleteSupplyResponse {
@@ -8,7 +7,7 @@ interface DeleteSupplyResponse {
 }
 const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    GetSupply: builder.query<void, any>({
+    GetSupply: builder.query<any, any>({
       query: () => ({
         url: "/api/v1/supplys",
         method: "GET",

@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/piechart",
         element: (
           <ProtectedRoute>
-            <PieCharts data01={[]} />
+            <PieCharts />
           </ProtectedRoute>
         ),
       },

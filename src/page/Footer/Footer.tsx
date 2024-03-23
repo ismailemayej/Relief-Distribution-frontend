@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div>
       <footer className="py-5  h-6/12 bg-gray-950 flex items-center dark:bg-gray-900 text-white">
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-0">
+        <div className="mx-auto w-full p-4 py-6 lg:py-0">
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-white sm:text-center dark:text-gray-400">
               © 2024
@@ -15,7 +15,7 @@ const Footer = () => {
             </span>
             <div className="flex mt-4 sm:justify-center sm:mt-0">
               <Link
-                to="#"
+                to="http://facebook.com"
                 className="p-2 border-indigo-700 border-2 bg-orange-600 text-gray-500 rounded-full hover:text-gray-900 dark:hover:text-white"
               >
                 <svg
@@ -34,7 +34,7 @@ const Footer = () => {
                 <span className="sr-only">Facebook page</span>
               </Link>
               <Link
-                to="#"
+                to="http://discord.com"
                 className=" bg-orange-600 rounded-full p-2 text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
@@ -49,7 +49,7 @@ const Footer = () => {
                 <span className="sr-only">Discord community</span>
               </Link>
               <Link
-                to="#"
+                to="http://twitter.com"
                 className="p-2 bg-orange-600 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
@@ -68,7 +68,7 @@ const Footer = () => {
                 <span className="sr-only">Twitter page</span>
               </Link>
               <Link
-                to="#"
+                to="http://githum.com"
                 className="p-2 bg-orange-600 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
@@ -87,7 +87,7 @@ const Footer = () => {
                 <span className="sr-only">GitHub account</span>
               </Link>
               <Link
-                to="#"
+                to="http://dribble.com"
                 className="p-2 bg-orange-600 rounded-full text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <svg
