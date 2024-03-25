@@ -11,9 +11,8 @@ const Post = () => {
   if (isLoading) {
     return <p>Loading</p>;
   }
-
   return (
-    <motion.div style={style} ref={componentRef}>
+    <div className="bg-red-500">
       <Heading title="RELIF GOOD POST" subTitle="" />
       {isSuccess && (
         <div className="flex justify-between">
@@ -28,7 +27,11 @@ const Post = () => {
       )}
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2">
         {data?.data?.slice(0, 6)?.map((news: any) => (
-          <div className="w-full  bg-white border border-gray-200 rounded-t-xl shadow dark:bg-gray-800 dark:border-gray-700">
+          <motion.div
+            style={style}
+            ref={componentRef}
+            className="w-full  bg-white border border-gray-200 rounded-t-xl shadow dark:bg-gray-800 dark:border-gray-700"
+          >
             <Link to="#">
               <img
                 className="rounded-t-xl h-[70%] w-full"
@@ -57,10 +60,10 @@ const Post = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
