@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const baseApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000",
+    baseUrl:
+      "https://relief-management-server-site-k03iy52om-ismailemayejs-projects.vercel.app/",
   }),
   endpoints: () => ({}),
   tagTypes: ["homepost", "supply"],
