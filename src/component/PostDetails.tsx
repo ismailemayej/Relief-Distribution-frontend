@@ -1,37 +1,60 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetpostQuery } from "../Redux/Api/getPost";
-import Swal from "sweetalert2";
+
 import Spinner from "./Spinner";
-const PostDetails = () => {
+import Post from "../page/Home/Post";
+import { useAppSelector } from "@/Redux/Hooks";
+import { userDetails } from "@/Redux/AuthSlice";
+import Swal from "sweetalert2";
+
+interface Post {
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  amount: number;
+}
+
+const PostDetails: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { data, isLoading } = useGetpostQuery("");
+  const user = useAppSelector(userDetails);
   if (isLoading) {
     return <Spinner />;
   }
-  const descriptionn =
-    "We are writing on behalf of our company, Glasses for Kids, We are writing on behalf of our company, Glasses for Kids.";
-  // for Modal handleing
-  const handleModal = () => {
-    Swal.fire({
-      text: descriptionn,
-      title: "Are you sure for Donate?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "I am Sure!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/dashboard/piechart");
-      }
-    });
-  };
 
-  const PostDetails = data?.data?.filter((post: any) => post?.title === id);
+  // for Modal handling
+
+  const PostDetails: Post[] | undefined = data?.data?.filter(
+    (post: Post) => post.title === id
+  );
   console.log(data, "data");
+  if (!PostDetails || PostDetails.length === 0) {
+    return <div>Post not found.</div>;
+  }
   const { title, description, image, category, amount } = PostDetails[0];
+  const handleModal = (PostDetails: any) => {
+    if (user.email) {
+      Swal.fire({
+        text: `Hello ${user?.name}, your email is ${user.email} Title: ${PostDetails.title}
+        Category: ${PostDetails.category} , Amount: ${PostDetails.amount}$ so. are you ready to Donate?`,
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "I am Rady!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/dashboard/piechart");
+        }
+      });
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <div>
@@ -56,7 +79,7 @@ const PostDetails = () => {
         <button
           className="bg-yellow-600 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
-          onClick={handleModal}
+          onClick={() => handleModal(PostDetails[0])}
         >
           Donate
         </button>

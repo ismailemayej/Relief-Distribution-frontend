@@ -2,11 +2,12 @@
 import { motion } from "framer-motion";
 import Heading from "../../component/Heading";
 import { useGetGalleryDataQuery } from "../../Redux/Api/getGalleryImage";
+import Spinner from "../../component/Spinner";
 
 const Gallery = () => {
   const { data, isLoading } = useGetGalleryDataQuery("");
   if (isLoading) {
-    <p>Loading...</p>;
+    <Spinner />;
   }
 
   const styles = "bg-white-600 border rounded-xl  lg:p-1 p-1";

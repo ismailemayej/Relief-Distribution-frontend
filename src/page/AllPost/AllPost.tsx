@@ -2,11 +2,12 @@
 import { Link } from "react-router-dom";
 import { useGetpostQuery } from "../../Redux/Api/getPost";
 import Heading from "../../component/Heading";
+import Spinner from "@/component/Spinner";
 
 const ALLPost = () => {
   const { data, isLoading } = useGetpostQuery("");
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Spinner />;
   }
   console.log(data, "blog data");
   return (
