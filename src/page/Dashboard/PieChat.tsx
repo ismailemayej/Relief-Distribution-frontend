@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 import { useGetSupplyQuery } from "../AllPost/SupplyApi/AllSupplyApi";
+import Spinner from "@/component/Spinner";
 const PieCharts = () => {
   const { data, isLoading } = useGetSupplyQuery("");
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading) return <Spinner />;
 
   const postData = data?.data;
   const totalData = postData.length;

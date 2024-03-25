@@ -3,16 +3,18 @@ import { motion } from "framer-motion";
 import Heading from "../../component/Heading";
 import { useGetGalleryDataQuery } from "../../Redux/Api/getGalleryImage";
 import Spinner from "../../component/Spinner";
+import useScrollGrow from "@/Hook/ScrollGrowHook";
 
 const Gallery = () => {
   const { data, isLoading } = useGetGalleryDataQuery("");
   if (isLoading) {
     <Spinner />;
   }
+  const { style, componentRef } = useScrollGrow();
 
   const styles = "bg-white-600 border rounded-xl  lg:p-1 p-1";
   return (
-    <motion.div>
+    <motion.div style={style} ref={componentRef}>
       <Heading title="GALLERY" subTitle="" />
       <>
         <div className="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 w-full lg:auto-rows-[300px] gap-1 lg:my-3">
