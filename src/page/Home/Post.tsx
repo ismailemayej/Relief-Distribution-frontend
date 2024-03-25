@@ -2,17 +2,17 @@
 import { Link } from "react-router-dom";
 import { useGetpostQuery } from "../../Redux/Api/getPost";
 import Heading from "../../component/Heading";
-import useScrollGrow from "@/Hook/ScrollGrowHook";
+// import useScrollGrow from "@/Hook/ScrollGrowHook";
 import { motion } from "framer-motion";
 const Post = () => {
-  const { style, componentRef } = useScrollGrow();
+  // const { style, componentRef } = useScrollGrow();
 
   const { data, isLoading, isSuccess } = useGetpostQuery("");
   if (isLoading) {
     return <p>Loading</p>;
   }
   return (
-    <div className="bg-red-500">
+    <div>
       <Heading title="RELIF GOOD POST" subTitle="" />
       {isSuccess && (
         <div className="flex justify-between">
@@ -28,8 +28,8 @@ const Post = () => {
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2">
         {data?.data?.slice(0, 6)?.map((news: any) => (
           <motion.div
-            style={style}
-            ref={componentRef}
+            // style={style}
+            // ref={componentRef}
             className="w-full  bg-white border border-gray-200 rounded-t-xl shadow dark:bg-gray-800 dark:border-gray-700"
           >
             <Link to="#">
