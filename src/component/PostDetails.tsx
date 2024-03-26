@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetpostQuery } from "../Redux/Api/getPost";
-
 import Spinner from "./Spinner";
 import Post from "../page/Home/Post";
 import { useAppSelector } from "@/Redux/Hooks";
 import { userDetails } from "@/Redux/AuthSlice";
-import Swal from "sweetalert2";
-
+import AlartModal from "./alartModal";
 interface Post {
   title: string;
   description: string;
@@ -20,6 +18,7 @@ interface Post {
 
 const PostDetails: React.FC = () => {
   const navigate = useNavigate();
+  const [openModal, setOpenModal] = useState(false);
   const { id } = useParams();
   const { data, isLoading } = useGetpostQuery("");
   const user = useAppSelector(userDetails);
@@ -37,25 +36,13 @@ const PostDetails: React.FC = () => {
     return <div>Post not found.</div>;
   }
   const { title, description, image, category, amount } = PostDetails[0];
-  const handleModal = (PostDetails: any) => {
-    if (user.email) {
-      Swal.fire({
-        text: `Hello ${user?.name}, your email is ${user.email} Title: ${PostDetails.title}
-        Category: ${PostDetails.category} , Amount: ${PostDetails.amount}$ so. are you ready to Donate?`,
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "I am Rady!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/dashboard/piechart");
-        }
-      });
+  const handleModal = () => {
+    if (user?.email) {
+      setOpenModal(true);
     } else {
       navigate("/login");
     }
   };
-
   return (
     <div>
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
@@ -79,10 +66,17 @@ const PostDetails: React.FC = () => {
         <button
           className="bg-yellow-600 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
-          onClick={() => handleModal(PostDetails[0])}
+          onClick={handleModal}
         >
           Donate
         </button>
+        {openModal && (
+          <AlartModal
+            modal={setOpenModal}
+            postinfo={PostDetails[0]}
+            user={user}
+          />
+        )}
       </div>
     </div>
   );

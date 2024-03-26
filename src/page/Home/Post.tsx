@@ -4,12 +4,13 @@ import { useGetpostQuery } from "../../Redux/Api/getPost";
 import Heading from "../../component/Heading";
 // import useScrollGrow from "@/Hook/ScrollGrowHook";
 import { motion } from "framer-motion";
+import Spinner from "@/component/Spinner";
 const Post = () => {
   // const { style, componentRef } = useScrollGrow();
 
   const { data, isLoading, isSuccess } = useGetpostQuery("");
   if (isLoading) {
-    return <p>Loading</p>;
+    return <Spinner />;
   }
   return (
     <div>
