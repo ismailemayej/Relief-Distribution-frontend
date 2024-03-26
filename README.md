@@ -8,8 +8,7 @@ https://wondrous-salamander-8b7b46.netlify.app/
 
 ### Live Server site
 
-````json
-https://relief-management-server-site.vercel.app```
+https://relief-management-server-site.vercel.app
 
 ### Instraction for use
 
@@ -46,4 +45,7 @@ https://relief-management-server-site.vercel.app```
 ### use
 
 - Locally run this project `npm run dev`
-````
+
+```
+
+```
