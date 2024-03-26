@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { toast } from "sonner";
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const AlartModal = ({ modal, postinfo, user }: any) => {
   const sentSubmitData = (submitData: any) => {

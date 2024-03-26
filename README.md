@@ -6,7 +6,17 @@ This is Relief Distribution web application for orphan ether releted organaigati
 
 https://wondrous-salamander-8b7b46.netlify.app/
 
-## Features
+### Live Server site
+
+https://relief-management-server-site.vercel.app
+
+### Instraction for use
+
+- Firt show home some section.
+- navbar have three button "All relief Goods" , logIn/logOut button and User dashboard . but dashboard is incripted. use only Loged user.
+  loged user can post create,update , delete and get.
+
+### Features
 
 - Dynamic user
 - Live previews
@@ -31,3 +41,7 @@ https://wondrous-salamander-8b7b46.netlify.app/
 - RTK Query
 - React Router Dom
 - Other
+
+### use
+
+- Locally run this project `npm run dev`
