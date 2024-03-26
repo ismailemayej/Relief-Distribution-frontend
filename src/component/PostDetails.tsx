@@ -25,7 +25,7 @@ const PostDetails: React.FC = () => {
   if (isLoading) {
     return <Spinner />;
   }
-
+  console.log(user, "user ");
   // for Modal handling
 
   const PostDetails: Post[] | undefined = data?.data?.filter(

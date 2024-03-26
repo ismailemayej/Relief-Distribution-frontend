@@ -17,6 +17,7 @@ export default function Navbar() {
     navigate("/");
     toast.success("Logout Successfully");
   };
+  console.log(user, "this is user");
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
