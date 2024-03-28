@@ -4,9 +4,8 @@ import { toast } from "sonner";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const AlartModal = ({ modal, postinfo, user }: any) => {
   const navigate = useNavigate();
-
   const sentSubmitData = (submitData: any) => {
-    navigate("/piechart");
+    navigate("/dashboard/piechart");
     toast.success("Your Donate submit data successfully");
     console.log(submitData, "submited data");
   };
