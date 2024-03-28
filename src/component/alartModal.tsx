@@ -1,9 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const AlartModal = ({ modal, postinfo, user }: any) => {
+  const navigate = useNavigate();
+
   const sentSubmitData = (submitData: any) => {
+    navigate("/piechart");
     toast.success("Your Donate submit data successfully");
     console.log(submitData, "submited data");
   };
