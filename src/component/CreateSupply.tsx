@@ -5,7 +5,12 @@ import { toast } from "sonner";
 import { FormInputs2 } from "../types/Types";
 import { useCrateSupplyMutation } from "../page/AllPost/SupplyApi/CreateSupplyApi";
 import Spinner from "./Spinner";
+import { useAppSelector } from "@/Redux/Hooks";
+import { userDetails } from "../Redux/AuthSlice";
+
 const CreateSupply = () => {
+  const user = useAppSelector(userDetails);
+  console.log(user);
   const {
     register,
     handleSubmit,
@@ -20,6 +25,7 @@ const CreateSupply = () => {
   const onSubmit = (data: FormInputs2) => {
     try {
       const SupplyPost = {
+        doner: user,
         title: data.title,
         image: data.image,
         amount: data.amount,

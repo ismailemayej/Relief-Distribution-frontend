@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayOut from "../layout/MainLayout";
+
 import Home from "../page/Home/Home";
 import PostDetails from "../component/PostDetails";
 import ALLPost from "../page/AllPost/AllPost";
@@ -10,11 +10,13 @@ import UserDashboard from "../page/Dashboard/UserDashboard";
 import CreateSupply from "../component/CreateSupply";
 import ProtectedRoute from "../layout/ProtectRoute";
 import PieCharts from "../page/Dashboard/PieChat";
+import MainApp from "@/MainApp";
+import Leaderboard from "@/page/Dashboard/Leaderboards/Leaderboard";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayOut />,
+    element: <MainApp />,
     children: [
       {
         path: "/",
@@ -24,6 +26,7 @@ export const router = createBrowserRouter([
         path: "/relief-goods/:id",
         element: <PostDetails />,
       },
+      { path: "/leaderboard", element: <Leaderboard /> },
       { path: "/relief-goods", element: <ALLPost /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Registration /> },

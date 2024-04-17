@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useAppDispatch } from "../Redux/Hooks";
 import { logout } from "../Redux/AuthSlice";
 import logo from "../assets/relief donation.png";
+import ThemeSwitch from "@/page/ThemeSwitch/Switch";
 
 const DashboradNavbar = () => {
   const user = "i";
@@ -34,6 +35,12 @@ const DashboradNavbar = () => {
                   >
                     All relif Goods
                   </Link>
+                  <Link
+                    to="/leaderboard"
+                    className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+                  >
+                    Top Donars
+                  </Link>
                 </div>
               </div>
             </div>
@@ -50,7 +57,7 @@ const DashboradNavbar = () => {
               <Menu as="div" className="relative ml-3">
                 <div>
                   <div className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    <div>
+                    <div className="mr-2">
                       <button
                         onClick={handleLogout}
                         className="font-semibold text-white rounded-xl bg-indigo-900 hover:bg-indigo-600 px-5 py-2"
@@ -58,6 +65,7 @@ const DashboradNavbar = () => {
                         Logout
                       </button>
                     </div>
+                    <ThemeSwitch />
                   </div>
                 </div>
                 <Transition

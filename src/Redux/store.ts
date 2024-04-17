@@ -3,16 +3,17 @@ import AuthSlice from "./AuthSlice";
 import { persistReducer, persistStore } from "redux-persist";
 import baseApi from "./Api/baseApi";
 import storage from "redux-persist/lib/storage";
+import themeReducer from "./Features/themeSlice";
 const persistConfig = {
   key: "root",
   storage,
 };
-
 const persistedauthReducer = persistReducer(persistConfig, AuthSlice);
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     auth: persistedauthReducer,
+    theme: themeReducer,
   },
   middleware: (getDefultMiddlewares) =>
     getDefultMiddlewares().concat(baseApi.middleware),

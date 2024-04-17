@@ -3,7 +3,7 @@ import reliefsGood from "../../assets/reliefs good.png";
 import { Link } from "react-router-dom";
 const HeroSection = () => {
   return (
-    <div className="grid lg:flex lg:flex-row-reverse lg:grid-cols-12 mt-2 grid-cols-1 items-center">
+    <div className="grid lg:flex lg:flex-row-reverse lg:grid-cols-12 mt-0 grid-cols-1 items-center">
       <motion.div
         initial={{ y: -500, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

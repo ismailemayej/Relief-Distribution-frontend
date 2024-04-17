@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
 import { logout, userDetails } from "../../Redux/AuthSlice";
 import { toast } from "sonner";
 import logo from "../../assets/relief donation.png";
+import ThemeSwitch from "../ThemeSwitch/Switch";
 
 export default function Navbar() {
   const user = useAppSelector(userDetails);
@@ -17,7 +18,6 @@ export default function Navbar() {
     navigate("/");
     toast.success("Logout Successfully");
   };
-  console.log(user, "this is user");
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -64,6 +64,12 @@ export default function Navbar() {
                     >
                       All relif Goods
                     </Link>
+                    <Link
+                      to="/leaderboard"
+                      className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+                    >
+                      Top Donars
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -97,6 +103,7 @@ export default function Navbar() {
                           </Link>
                         </div>
                       )}
+                      <ThemeSwitch />
                     </div>
                   </div>
                   <Transition
