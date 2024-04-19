@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { PersistGate } from "redux-persist/integration/react";

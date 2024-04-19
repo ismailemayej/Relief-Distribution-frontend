@@ -1,6 +1,5 @@
 import ContactUs from "../../component/ContactUs";
 import CenterLocation from "../../component/Location";
-import AboutUs from "./AboutUs";
 import Gallery from "./Gallery";
 import HeroSection from "./HeroSection";
 import Post from "./Post";
@@ -15,7 +14,6 @@ const Home = () => {
       <Gallery />
       <CenterLocation />
       <ContactUs />
-      <AboutUs />
     </div>
   );
 };

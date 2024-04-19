@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ContainerOutlined, BarChartOutlined } from "@ant-design/icons";
+import {
+  ContainerOutlined,
+  BarChartOutlined,
+  BookOutlined,
+} from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu } from "antd";
 import { Outlet } from "react-router-dom";
@@ -24,9 +28,9 @@ function getItem(
     label,
   } as MenuItem;
 }
-
 const items: MenuItem[] = [
   getItem("PieChart", "piechart", <BarChartOutlined />),
+  getItem("Create Testimonial", "create-testimonial", <BookOutlined />),
   getItem("Supply Posts", "", <ContainerOutlined />, [
     getItem("All Supply Post", "allsupplypost", <ContainerOutlined />),
     getItem("Create Supply Post", "create-supply", <ContainerOutlined />),

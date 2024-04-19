@@ -6,11 +6,8 @@ import { setUser } from "../../Redux/AuthSlice";
 import { useAppDispatch } from "../../Redux/Hooks";
 import { useForm } from "react-hook-form";
 import Spinner from "../../component/Spinner";
-
 const Login = () => {
-  const [login, { data, isLoading }] = useLoginMutation();
-  console.log(data, "login data");
-
+  const [login, { isLoading }] = useLoginMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const {
@@ -21,6 +18,7 @@ const Login = () => {
 
   const onSubmit = async (data: FormInputs) => {
     const userinfo = {
+      name: data?.name || "Guest",
       email: data.email,
       password: data.password,
     };

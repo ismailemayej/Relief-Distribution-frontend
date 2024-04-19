@@ -13,7 +13,7 @@ const Post = () => {
     return <Spinner />;
   }
   return (
-    <div>
+    <div className="">
       <Heading title="RELIF GOOD POST" subTitle="" />
       {isSuccess && (
         <div className="flex justify-between">

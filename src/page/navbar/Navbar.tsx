@@ -70,6 +70,18 @@ export default function Navbar() {
                     >
                       Top Donars
                     </Link>
+                    <Link
+                      to="/Community"
+                      className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+                    >
+                      Community
+                    </Link>
+                    <Link
+                      to="/about-us"
+                      className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+                    >
+                      AboutUs
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -136,6 +148,24 @@ export default function Navbar() {
                 className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
               >
                 All relief Goods
+              </Link>
+              <Link
+                to="/leaderboard"
+                className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+              >
+                Top Donars
+              </Link>
+              <Link
+                to="/Community"
+                className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+              >
+                Community
+              </Link>
+              <Link
+                to="/about-us"
+                className="block text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
+              >
+                AboutUs
               </Link>
             </div>
           </Disclosure.Panel>

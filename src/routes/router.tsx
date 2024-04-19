@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import Home from "../page/Home/Home";
 import PostDetails from "../component/PostDetails";
 import ALLPost from "../page/AllPost/AllPost";
@@ -12,6 +11,9 @@ import ProtectedRoute from "../layout/ProtectRoute";
 import PieCharts from "../page/Dashboard/PieChat";
 import MainApp from "@/MainApp";
 import Leaderboard from "@/page/Dashboard/Leaderboards/Leaderboard";
+import Community from "@/component/GratitudeWall/Community";
+import CreateTestimonial from "@/component/CreateTestimonial";
+import Aboutus from "../page/aboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -26,8 +28,10 @@ export const router = createBrowserRouter([
         path: "/relief-goods/:id",
         element: <PostDetails />,
       },
-      { path: "/leaderboard", element: <Leaderboard /> },
       { path: "/relief-goods", element: <ALLPost /> },
+      { path: "/about-us", element: <Aboutus /> },
+      { path: "/community", element: <Community /> },
+      { path: "/leaderboard", element: <Leaderboard /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Registration /> },
     ],
@@ -57,6 +61,14 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <CreateSupply />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/dashboard/create-testimonial",
+        element: (
+          <ProtectedRoute>
+            <CreateTestimonial />
           </ProtectedRoute>
         ),
       },

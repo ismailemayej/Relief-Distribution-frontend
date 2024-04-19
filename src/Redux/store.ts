@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from "redux-persist";
 import baseApi from "./Api/baseApi";
 import storage from "redux-persist/lib/storage";
 import themeReducer from "./Features/themeSlice";
+import gratitudeReducer from "./Features/gratitudeSlice";
 const persistConfig = {
   key: "root",
   storage,
@@ -14,6 +15,7 @@ export const store = configureStore({
     [baseApi.reducerPath]: baseApi.reducer,
     auth: persistedauthReducer,
     theme: themeReducer,
+    gratitude: gratitudeReducer,
   },
   middleware: (getDefultMiddlewares) =>
     getDefultMiddlewares().concat(baseApi.middleware),

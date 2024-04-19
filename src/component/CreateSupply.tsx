@@ -10,7 +10,6 @@ import { userDetails } from "../Redux/AuthSlice";
 
 const CreateSupply = () => {
   const user = useAppSelector(userDetails);
-  console.log(user);
   const {
     register,
     handleSubmit,
@@ -24,8 +23,13 @@ const CreateSupply = () => {
   }
   const onSubmit = (data: FormInputs2) => {
     try {
+      const donarInfo = {
+        donarName: user.name,
+        donarEmail: user.email,
+      };
+      console.log(donarInfo);
       const SupplyPost = {
-        doner: user,
+        doner: donarInfo,
         title: data.title,
         image: data.image,
         amount: data.amount,
@@ -42,10 +46,10 @@ const CreateSupply = () => {
   };
 
   return (
-    <div className="min-h-screen flex border items-center justify-center bg-gray-50 px-6 lg:px-8">
+    <div className="min-h-screen flex border items-center justify-center px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          <h2 className="mt-6 text-center text-3xl font-extrabold">
             Create Supply Post
           </h2>
         </div>
@@ -62,7 +66,7 @@ const CreateSupply = () => {
                 type="text"
                 autoComplete="title"
                 required
-                className=" appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                className=" appearance-none  rounded-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                 placeholder="title Here"
               />
               {errors.title && (
@@ -80,7 +84,7 @@ const CreateSupply = () => {
                 type="text"
                 autoComplete="image"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                className="appearance-none rounded-xl  relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                 placeholder="image Link here"
               />
               {errors.image && (
@@ -98,7 +102,7 @@ const CreateSupply = () => {
                 type="category"
                 autoComplete="category"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                className="appearance-none  relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-xl focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                 placeholder="category"
               />
               {errors.category && (
@@ -116,7 +120,7 @@ const CreateSupply = () => {
                 type="number"
                 autoComplete="amount"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                className="appearance-none   relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-xl focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                 placeholder="amount"
               />
               {errors.amount && (
@@ -132,7 +136,7 @@ const CreateSupply = () => {
                 type="description"
                 autoComplete="description"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                className="appearance-none  relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-xl focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                 placeholder="description"
               />
               {errors.description && (
@@ -146,7 +150,7 @@ const CreateSupply = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="group rounded-xl relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Create
             </button>

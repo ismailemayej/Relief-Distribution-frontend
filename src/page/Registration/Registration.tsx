@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FormInputs } from "../../types/Types";
 import { useRegisterMutation } from "../../Redux/Api/AuthRegister/AuthRegister";
 import { toast } from "sonner";
 const Registration = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,6 +21,7 @@ const Registration = () => {
         password: data.password,
       };
       Register(userInfo);
+      navigate("/");
 
       toast.success("Register successfully");
     } catch (error) {

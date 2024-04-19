@@ -6,17 +6,15 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import Heading from "../../component/Heading";
 
-const AboutUs = () => {
+const Aboutus = () => {
   const [open, setOpen] = React.useState(1);
 
   const handleOpen = (value: any) => setOpen(open === value ? 0 : value);
 
   return (
-    <>
-      <Heading title="About Us" subTitle="" />
-      <div className="grid lg:grid-cols-2 grid-cols-1 my-9 w-full p-4 gap-3">
+    <div className="">
+      <div className="grid lg:grid-cols-2 grid-cols-1 my-9 w-full gap-3">
         <Accordion
           placeholder=""
           open={open === 1}
@@ -54,7 +52,7 @@ const AboutUs = () => {
           />{" "}
         </div>
       </div>
-    </>
+    </div>
   );
 };
-export default AboutUs;
+export default Aboutus;
