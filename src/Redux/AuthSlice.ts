@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice } from "@reduxjs/toolkit";
 import { TUser } from "../types/Types";
 import { RootState } from "./store";
@@ -22,6 +23,7 @@ const authSlice = createSlice({
       state.email = email;
       state.password = password;
     },
+
     logout: (state) => {
       state.email = null;
       state.password = null;

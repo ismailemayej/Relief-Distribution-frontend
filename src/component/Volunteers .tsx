@@ -41,8 +41,7 @@ const Volunteers = () => {
 
   return (
     <div>
-      {" "}
-      <h3 className="text-xl font-semibold">Volunteer List</h3>
+      <h3 className="text-xl font-semibold">Our Volunteers</h3>
       {volunteerData?.map((item: any) => (
         <div className="border lg:w-[50%] rounded-xl my-2 ">
           <h2 className="text-xl bg-slate-100 rounded-t-xl px-2 flex items-center py-1 text-blue-800 font-semibold">

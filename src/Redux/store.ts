@@ -5,6 +5,8 @@ import baseApi from "./Api/baseApi";
 import storage from "redux-persist/lib/storage";
 import themeReducer from "./Features/themeSlice";
 import gratitudeReducer from "./Features/gratitudeSlice";
+import userReducer from "./CurrentUserSlice";
+import { setupListeners } from "@reduxjs/toolkit/query/react";
 const persistConfig = {
   key: "root",
   storage,
@@ -16,11 +18,12 @@ export const store = configureStore({
     auth: persistedauthReducer,
     theme: themeReducer,
     gratitude: gratitudeReducer,
+    user: userReducer,
   },
   middleware: (getDefultMiddlewares) =>
     getDefultMiddlewares().concat(baseApi.middleware),
 });
-
+setupListeners(store.dispatch);
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}

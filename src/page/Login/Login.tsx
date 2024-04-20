@@ -22,7 +22,6 @@ const Login = () => {
       email: data.email,
       password: data.password,
     };
-
     try {
       await login(userinfo).unwrap();
       navigate("/");
