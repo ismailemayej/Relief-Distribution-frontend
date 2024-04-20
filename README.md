@@ -5,8 +5,8 @@ This is Relief Distribution web application for orphan ether releted organaigati
 ``### Live link
 https://effulgent-hamster-d9942a.netlify.app/```
 
-```### Live Server site
-https://relief-management-server-site.vercel.app/```
+### Live Server site
+https://relief-management-server-site.vercel.app/
 
 ### Instraction for use
 
@@ -48,7 +48,3 @@ https://relief-management-server-site.vercel.app/```
 ### use
 
 - Locally run this project `npm run dev`
-
-```
-
-```
