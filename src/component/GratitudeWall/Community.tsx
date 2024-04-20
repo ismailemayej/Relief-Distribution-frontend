@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Flex, Input } from "antd";
+const { TextArea } = Input;
 import {
   useCommunitywallgetQuery,
   useCommunitywallMutation,
@@ -49,7 +51,6 @@ const Community = () => {
           </p>
           <hr />
           <p className="px-2 py-3 lg:w-[50%]">
-            {" "}
             <span className="w-[100%] font-semibold">{item.commnet}</span>{" "}
           </p>
         </div>
@@ -83,9 +84,7 @@ const Community = () => {
             <label htmlFor="title" className="sr-only">
               Type your Commnet
             </label>
-            <textarea
-              cols="50"
-              rows="10"
+            <input
               {...register("commnet", { required: true })}
               id="commnet"
               name="commnet"

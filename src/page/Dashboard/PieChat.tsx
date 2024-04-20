@@ -7,8 +7,8 @@ const PieCharts = () => {
   if (isLoading) return <Spinner />;
 
   const postData = data?.data;
-  const totalData = postData.length;
-  const totalAmout = postData.reduce(
+  const totalData = postData?.length;
+  const totalAmout = postData?.reduce(
     (prevalue: number, curValue: { amount: string }) => {
       const sTn = prevalue + parseInt(curValue.amount);
       const total = sTn.toFixed(2);
@@ -29,12 +29,12 @@ const PieCharts = () => {
           Total Donation: <span className="  text-rose-700">{totalData}</span>
         </h3>
         <h3 className="t text-orange-500">
-          Total Donation Amount:{" "}
-          <span className="  text-rose-700">${totalAmout}</span>
+          Total Donation Amount:
+          <span className="  text-rose-700">${totalAmout || "00"}</span>
         </h3>
         <h3 className="t text-orange-500">
           Avarage Donation Amount:{" "}
-          <span className="  text-rose-700">${avarage}</span>
+          <span className="  text-rose-700">${avarage || "00"}</span>
         </h3>
       </div>
       <div>
