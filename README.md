@@ -4,7 +4,7 @@ This is Relief Distribution web application for orphan ether releted organaigati
 
 ### Live link
 
-https://wondrous-salamander-8b7b46.netlify.app/
+https://effulgent-hamster-d9942a.netlify.app/
 
 ### Live Server site
 
