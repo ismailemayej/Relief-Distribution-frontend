@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Flex, Input } from "antd";
-const { TextArea } = Input;
 import {
   useCommunitywallgetQuery,
   useCommunitywallMutation,
@@ -99,7 +97,7 @@ const Community = () => {
             )}
           </div>
           <button
-            className="btn w-full border-t-indigo-700 mb-5 bg-orange-200 text-xl font-semibold px-5 py-2 rounded-xl mt-1 flex justify-center"
+            className="btn w-full border-t-indigo-700 mb-5 bg-orange-300  text-xl font-semibold px-5 py-2 rounded-xl mt-1 flex justify-center"
             type="submit"
           >
             Comment
