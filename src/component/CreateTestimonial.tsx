@@ -2,10 +2,12 @@
 
 import { useAddTestimonialMutation } from "@/Redux/Api/testimonialApi";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 const CreateTestimonial = () => {
   const [addTestimonial] = useAddTestimonialMutation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,6 +22,7 @@ const CreateTestimonial = () => {
         position: data.position,
         review: data.review,
       };
+      navigate("/");
       toast.success("testimonial added succesfully");
       addTestimonial(newData);
       reset();
