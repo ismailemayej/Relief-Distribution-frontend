@@ -8,6 +8,8 @@ import { logout, userDetails } from "../../Redux/AuthSlice";
 import { toast } from "sonner";
 import logo from "../../assets/relief donation.png";
 import ThemeSwitch from "../ThemeSwitch/Switch";
+import { FaRegUserCircle } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 
 export default function Navbar() {
   const user = useAppSelector(userDetails);
@@ -105,13 +107,20 @@ export default function Navbar() {
                             onClick={handleLogout}
                             className="font-semibold text-white rounded-xl bg-indigo-900 hover:bg-indigo-600 px-5 py-2"
                           >
-                            Logout
+                            <FiLogOut />
                           </button>
                         </div>
                       ) : (
-                        <div className="hover:bg-slate-700 hover:w-full hover:px-4 px-4 hover:rounded-xl hover:py-2">
+                        <div className="hover:bg-slate-700 hover:w-full px-4 hover:rounded-xl py-2">
                           <Link className=" text-white" to="/login">
-                            Login or Register
+                            <h1 className="lg:hidden text-xl">
+                              <FaRegUserCircle />
+                            </h1>
+                            <h1>
+                              <span className="hidden lg:block">
+                                Login or Register
+                              </span>
+                            </h1>
                           </Link>
                         </div>
                       )}
