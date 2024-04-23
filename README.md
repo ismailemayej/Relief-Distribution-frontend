@@ -3,11 +3,9 @@
 This is Relief Distribution web application for orphan ether releted organaigation.
 
 ### Live link
-
-https://wondrous-salamander-8b7b46.netlify.app/
+https://effulgent-hamster-d9942a.netlify.app/
 
 ### Live Server site
-
 https://relief-management-server-site.vercel.app/
 
 ### Instraction for use
@@ -50,7 +48,3 @@ https://relief-management-server-site.vercel.app/
 ### use
 
 - Locally run this project `npm run dev`
-
-```
-
-```
