@@ -82,14 +82,13 @@ const Community = () => {
             <label htmlFor="title" className="sr-only">
               Type your Commnet
             </label>
-            <input
+            <textarea
               {...register("commnet", { required: true })}
               id="commnet"
               name="commnet"
-              type="text"
               autoComplete="commnet"
               required
-              className=" appearance-none rounded-xl text-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 my-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+              className="textarea textarea-bordered appearance-none rounded-xl text-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 my-2 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
               placeholder="commnet Here"
             />
             {errors.commnet && (

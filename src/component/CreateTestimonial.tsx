@@ -46,7 +46,7 @@ const CreateTestimonial = () => {
             type="text"
             autoComplete="name"
             required
-            className=" appearance-none my-2  rounded-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            className=" appearance-none my-2 input input-bordered rounded-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
             placeholder="Name Here"
           />
           {errors.name && (
@@ -64,7 +64,7 @@ const CreateTestimonial = () => {
             type="text"
             autoComplete="position"
             required
-            className=" appearance-none my-2 rounded-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            className=" appearance-none my-2 input input-bordered rounded-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
             placeholder="Position Here"
           />
           {errors.position && (
@@ -75,14 +75,13 @@ const CreateTestimonial = () => {
           <label htmlFor="review" className="sr-only">
             Your Testimonial
           </label>
-          <input
+          <textarea
             {...register("review", { required: true })}
             id="review"
-            type="text"
             name="review"
             autoComplete="review"
             required
-            className=" appearance-none my-2 rounded-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+            className=" appearance-none textarea texarea-bordered my-2 rounded-xl relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
             placeholder="Review Here"
           />
           {errors.review && (

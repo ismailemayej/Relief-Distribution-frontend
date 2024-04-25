@@ -72,7 +72,7 @@ export default function EditModal({ props }: any) {
                         autoComplete="title"
                         required
                         defaultValue={data.title}
-                        className=" appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
+                        className=" appearance-none input input-bordered rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
                         placeholder="title Here"
                       />
                       {errors.title && (
@@ -93,7 +93,7 @@ export default function EditModal({ props }: any) {
                         autoComplete="image"
                         defaultValue={data.image}
                         required
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                        className="appearance-none input input-bordered rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                         placeholder="image Link here"
                       />
                       {errors.image && (
@@ -114,7 +114,7 @@ export default function EditModal({ props }: any) {
                         autoComplete="category"
                         defaultValue={data.category}
                         required
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                        className="appearance-none input input-bordered rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                         placeholder="category"
                       />
                       {errors.category && (
@@ -133,7 +133,7 @@ export default function EditModal({ props }: any) {
                         autoComplete="amount"
                         defaultValue={data.amount}
                         required
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                        className="appearance-none input input-bordered rounded-none  relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                         placeholder="amount"
                       />
                       {errors.amount && (
@@ -152,7 +152,7 @@ export default function EditModal({ props }: any) {
                         autoComplete="description"
                         defaultValue={data.description}
                         required
-                        className=" appearance-none rounded-none relative block w-full px-1 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
+                        className=" appearance-none input input-bordered rounded-none  relative block w-full px-1 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm mt-3"
                         placeholder="description"
                       />
                       {errors.description && (
