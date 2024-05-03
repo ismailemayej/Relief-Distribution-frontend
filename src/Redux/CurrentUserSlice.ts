@@ -4,7 +4,7 @@ import {
   createAsyncThunk,
   createSelector,
 } from "@reduxjs/toolkit";
-import { useGetCurrentUserQuery, useGetUserByIdQuery } from "./Api/userApi";
+import { useGetCurrentUserQuery } from "./Api/userApi";
 
 export const fetchCurrentUser = createAsyncThunk(
   "user/fetchCurrentUser",

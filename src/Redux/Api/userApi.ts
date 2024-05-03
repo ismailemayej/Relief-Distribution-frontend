@@ -2,12 +2,13 @@
 import baseApi from "./baseApi";
 export const getUserData = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getCurrentUser: builder.query<any, void>({
-      query: () => "/api/v1/user",
-    }),
-    getUserById: builder.query<any, string>({
-      query: (userId) => `/api/v1/users/${userId}`,
+    getCurrentUser: builder.query<any, any>({
+      query: (email) => ({
+        url: `api/v1/user`,
+        method: "GET",
+        params: { email: email },
+      }),
     }),
   }),
 });
-export const { useGetCurrentUserQuery, useGetUserByIdQuery } = getUserData;
+export const { useGetCurrentUserQuery } = getUserData;

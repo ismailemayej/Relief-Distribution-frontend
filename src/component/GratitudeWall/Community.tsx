@@ -39,20 +39,17 @@ const Community = () => {
   return (
     <div>
       <Heading title="Community Gratitude Wall" subTitle="" />
-      {commentData?.map((item: any) => (
-        <div className="border lg:w-[50%] rounded-xl my-2 ">
-          <h2 className="text-2xl bg-slate-100 rounded-t-xl px-2 flex items-center py-1 text-blue-800 font-semibold">
-            {item.name}
-          </h2>
-          <p className="bg-slate-50 px-2 text-sm text-gray-500">
-            {item.date}.{item.time}
-          </p>
-          <hr />
-          <p className="px-2 py-3 lg:w-[50%]">
-            <span className="w-[100%] font-semibold">{item.commnet}</span>{" "}
-          </p>
-        </div>
-      ))}
+      <div className="grid w-[90%] lg:grid-cols-3 grid-cols-1 gap-3">
+        {commentData?.map((item: any) => (
+          <div className="card bg-primary text-primary-content">
+            <div className="card-body">
+              <h2 className="card-title">{item.name}</h2>
+              <p className="text-sm">Date:{item.date}</p>
+              <p>{item.commnet}</p>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className="flex justify-center">
         <form
           action=""

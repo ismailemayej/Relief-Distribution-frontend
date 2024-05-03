@@ -6,8 +6,11 @@ import { setUser } from "../../Redux/AuthSlice";
 import { useAppDispatch } from "../../Redux/Hooks";
 import { useForm } from "react-hook-form";
 import Spinner from "../../component/Spinner";
+import { jwtDecode } from "jwt-decode";
+import { useEffect } from "react";
 const Login = () => {
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, data: loggedinData }] = useLoginMutation();
+  console.log(loggedinData, "this is login data");
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const {
@@ -24,8 +27,8 @@ const Login = () => {
     };
     try {
       await login(userinfo).unwrap();
-      navigate("/");
-      dispatch(setUser(userinfo));
+
+      toast.success("SinIn Successfully");
       // Assuming you're using react-toastify, you need to import it correctly
       toast.success("Successfully Login");
     } catch (error) {
@@ -34,6 +37,14 @@ const Login = () => {
       toast.error("Failed to login. Please try again.");
     }
   };
+  useEffect(() => {
+    if (loggedinData) {
+      const token = loggedinData.token;
+      const decoded = jwtDecode(token);
+      dispatch(setUser(decoded));
+      navigate("/dashboard");
+    }
+  }, [loggedinData]);
 
   if (isLoading) {
     return <Spinner />;
@@ -102,7 +113,7 @@ const Login = () => {
           dont have any account ? please{" "}
           <Link className="font-semibold text-blue-800" to="/register">
             Register
-          </Link>{" "}
+          </Link>
           now
         </p>
       </div>

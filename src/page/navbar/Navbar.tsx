@@ -1,18 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hooks";
-import { logout, userDetails } from "../../Redux/AuthSlice";
+import { logout, setUser, userDetails } from "../../Redux/AuthSlice";
 import { toast } from "sonner";
 import logo from "../../assets/relief donation.png";
 import ThemeSwitch from "../ThemeSwitch/Switch";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
+import { useGetCurrentUserQuery } from "@/Redux/Api/userApi";
 
 export default function Navbar() {
   const user = useAppSelector(userDetails);
+  const { data } = useGetCurrentUserQuery(user.email);
+  console.log(data);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -20,9 +23,14 @@ export default function Navbar() {
     navigate("/");
     toast.success("Logout Successfully");
   };
+  useEffect(() => {
+    if (data) {
+      dispatch(setUser(data));
+    }
+  }, [data]);
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-500">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -41,6 +49,7 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
+                  <div>{user.name}</div>
                   <Link to="/">
                     <img
                       className="h-10 w-auto"

@@ -2,8 +2,8 @@ const DarkSwitch = () => {
   return (
     <div>
       <button
-        className="theme-toggle"
-        id="theme-toggle"
+        // className="theme-toggle"
+        // id="theme-toggle"
         title="Toggles light & dark"
         aria-label="auto"
         aria-live="polite"
