@@ -2,6 +2,7 @@
 import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 import { useGetSupplyQuery } from "../AllPost/SupplyApi/AllSupplyApi";
 import Spinner from "@/component/Spinner";
+import Charts from "./Charts";
 const PieCharts = () => {
   const { data, isLoading } = useGetSupplyQuery("");
   if (isLoading) return <Spinner />;
@@ -23,7 +24,7 @@ const PieCharts = () => {
     { name: "Avarage", value: avarage },
   ];
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1">
+    <div className="">
       <div className="lg:px-5 px-2 py-5 bg-white shadow-lg lg:text-3xl text-xl font-semibold">
         <h3 className="t text-orange-500">
           Total Donation: <span className="  text-rose-700">{totalData}</span>
@@ -37,8 +38,8 @@ const PieCharts = () => {
           <span className="  text-rose-700">${avarage || "00"}</span>
         </h3>
       </div>
-      <div>
-        <ResponsiveContainer width="100%" height={400}>
+
+      {/* <ResponsiveContainer width="100%" height={400}>
           <PieChart>
             <Pie
               dataKey="value"
@@ -52,8 +53,8 @@ const PieCharts = () => {
             />
             <Tooltip />
           </PieChart>
-        </ResponsiveContainer>
-      </div>
+        </ResponsiveContainer> */}
+      <Charts />
     </div>
   );
 };

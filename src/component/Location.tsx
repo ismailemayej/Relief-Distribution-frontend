@@ -5,7 +5,7 @@ const CenterLocation = () => {
   return (
     <>
       <Heading title="Distribution Center Locations" subTitle="" />
-      <div className=" grid lg:grid-cols-2 grid-cols-1 px-8 lg:pl-48 mx-auto bg-slate-100 shadow-md rounded-xl lg:py-16 py-6">
+      <div className=" grid lg:grid-cols-2 grid-cols-1 px-4 lg:pl-48 mx-auto bg-slate-100 shadow-md rounded-xl lg:py-16 py-6">
         <div>
           <h3 className="t text-neutral-800 text-2xl">
             Center Name:

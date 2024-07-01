@@ -30,7 +30,7 @@ export default function Navbar() {
   }, [data]);
 
   return (
-    <Disclosure as="nav" className="bg-gray-500">
+    <Disclosure as="nav" className="bg-gray-900">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -49,13 +49,26 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <div>{user.name}</div>
                   <Link to="/">
                     <img
-                      className="h-10 w-auto"
+                      className=" lg:hidden h-10 w-auto"
                       src={logo}
                       alt="relief Donation"
                     />
+                    <div
+                      className="text-white
+                    lg:block hidden text-xl"
+                    >
+                      <span className="text-green-500  font-bold text-4xl">
+                        R
+                      </span>
+                      <span className=" text-yellow-400 font-bold text-4xl mr-1">
+                        D
+                      </span>
+                      <span className=" text-yellow-600 font-semibold ">
+                        FOUNDATION
+                      </span>
+                    </div>
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -63,7 +76,7 @@ export default function Navbar() {
                     {user?.email && (
                       <Link
                         to="/dashboard/piechart"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                        className="block hover:rounded-xl text-gray-300 rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white"
                       >
                         Dashboard
                       </Link>
@@ -98,14 +111,6 @@ export default function Navbar() {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                </button>
-
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>

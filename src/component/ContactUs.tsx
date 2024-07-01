@@ -27,8 +27,8 @@ const ContactUs: React.FC = () => {
   return (
     <div>
       <Heading title="Contact Us" subTitle="" />
-      <div className="mb-16 h-full justify-center my-4 pb-1 grid lg:grid-cols-2 grid-cols-1 px-6 mx-autoshadow-md rounded-xl lg:py-16 py-6">
-        <div className=" bg-slate-200 shadow-orange-300 w-11/12 p-4 rounded-xl mx-auto">
+      <div className="mb-16 h-full justify-center my-4 pb-1 grid lg:grid-cols-2 grid-cols-1 mx-auto shadow-md rounded-xl lg:py-16">
+        <div className=" bg-slate-200 shadow-orange-300 w-11/12 p-2 rounded-xl mx-auto">
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label

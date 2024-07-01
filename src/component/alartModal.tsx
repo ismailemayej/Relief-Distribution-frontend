@@ -45,30 +45,35 @@ const AlartModal = ({ modal, postinfo, user }: any) => {
             </svg>
             <span className="sr-only">Close modal</span>
           </button>
-          <div className="p-4 md:p-5 text-left">
-            <h3 className="mb-5 text-xl font-normal text-gray-500 dark:text-gray-400">
-              <div>Name:{user?.name ? user?.name : "No user name"}</div>
+          <div className="p-4 md:p-5 text-left shadow-xl py-2">
+            <h3 className="mb-5 text-xl font-normat bg-slate-50 p-2 rounded-xl dark:text-gray-400">
+              <div>Name:{user?.name ? user?.name : "ismaile hossain"}</div>
               <div>Email:{user?.email}</div>
             </h3>
-            <div>
-              <h2 className="font-semibold text-center">Post Details</h2>
-              <div className="text-lg">
-                <span className="font-semibold">Title:</span> {postinfo?.title}
+            <div className=" bg-slate-50 border border-red-300 rounded-xl mb-2">
+              <h2 className="font-semibold text-center bg-gray-200 py-1 rounded-t-xl">
+                Post Details
+              </h2>
+              <div className="p-3">
+                <div className="text-lg">
+                  <span className="font-semibold">Title:</span>{" "}
+                  {postinfo?.title}
+                </div>
+                <div className="text-lg">
+                  <span className="font-semibold">Category:</span>{" "}
+                  {postinfo?.category}
+                </div>
+                <div className="text-lg">
+                  <span className="font-semibold">Amount:</span>
+                  {postinfo?.amount}
+                </div>
+                your are sure for Donate?
               </div>
-              <div className="text-lg">
-                <span className="font-semibold">Category:</span>{" "}
-                {postinfo?.category}
-              </div>
-              <div className="text-lg">
-                <span className="font-semibold">Amount:</span>
-                {postinfo?.amount}
-              </div>
-              your are sure for Donate?
             </div>
             <button
               onClick={() => sentSubmitData(sentDataObj)}
               type="submit"
-              className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
+              className=" text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-xl text-sm inline-flex items-center px-5 py-2.5 text-center"
             >
               Yes, I'm sure
             </button>
