@@ -112,7 +112,7 @@ export default function Navbar() {
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                <Menu as="div" className="relative">
                   <div>
                     <div className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       {user?.email ? (
@@ -121,7 +121,8 @@ export default function Navbar() {
                             onClick={handleLogout}
                             className="font-semibold text-white rounded-xl bg-indigo-900 hover:bg-indigo-600 px-5 py-2"
                           >
-                            <FiLogOut />
+                            <span className="lg:block hidden"> LogOut</span>
+                            <FiLogOut className="lg:hidden block" />
                           </button>
                         </div>
                       ) : (

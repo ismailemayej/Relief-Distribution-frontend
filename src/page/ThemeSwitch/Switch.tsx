@@ -6,7 +6,7 @@ const ThemeSwitch = () => {
   const darkmode = useAppSelector((state) => state.theme.darkMode);
   const dispatch = useAppDispatch();
   return (
-    <button onClick={() => dispatch(toggleTheme())}>
+    <button className="text-white" onClick={() => dispatch(toggleTheme())}>
       {darkmode ? <DarkSwitch /> : <DarkSwitch />}
     </button>
   );
