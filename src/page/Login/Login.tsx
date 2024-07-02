@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import Spinner from "../../component/Spinner";
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from "react";
-import SocialButton from "@/component/socialButton";
 const Login = () => {
   const [login, { isLoading, data: loggedinData }] = useLoginMutation();
   console.log(loggedinData, "this is login data");
@@ -19,14 +18,6 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>();
-  const handleSocialLogin = (user: any) => {
-    console.log(user);
-  };
-
-  const handleSocialLoginFailure = (err: any) => {
-    console.error(err);
-  };
-
   const onSubmit = async (data: FormInputs) => {
     const userinfo = {
       name: data?.name || "Guest",
@@ -135,14 +126,6 @@ const Login = () => {
           now
         </p>
       </div>
-      {/* <SocialButton
-        provider="facebook"
-        appId="YOUR_APP_ID"
-        onLoginSuccess={handleSocialLogin}
-        onLoginFailure={handleSocialLoginFailure}
-      >
-        Login with Facebook
-      </SocialButton> */}
     </div>
   );
 };

@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 import { useGetSupplyQuery } from "../AllPost/SupplyApi/AllSupplyApi";
 import Spinner from "@/component/Spinner";
 import Charts from "./Charts";
@@ -18,11 +17,6 @@ const PieCharts = () => {
     0
   );
   const avarage = (totalAmout / totalData).toFixed(2);
-  const piedata = [
-    { name: "Total Data", value: totalData },
-    { name: "Total Amount", value: totalAmout },
-    { name: "Avarage", value: avarage },
-  ];
   return (
     <div className="">
       <div className="lg:px-5 px-2 py-5 bg-white shadow-lg lg:text-3xl text-xl font-semibold">

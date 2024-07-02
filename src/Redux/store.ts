@@ -5,7 +5,6 @@ import baseApi from "./Api/baseApi";
 import storage from "redux-persist/lib/storage";
 import themeReducer from "./Features/themeSlice";
 import gratitudeReducer from "./Features/gratitudeSlice";
-import userReducer from "./CurrentUserSlice";
 import { setupListeners } from "@reduxjs/toolkit/query/react";
 const persistConfig = {
   key: "root",
@@ -18,7 +17,6 @@ export const store = configureStore({
     auth: persistedauthReducer,
     theme: themeReducer,
     gratitude: gratitudeReducer,
-    user: userReducer,
   },
   middleware: (getDefultMiddlewares) =>
     getDefultMiddlewares().concat(baseApi.middleware),
