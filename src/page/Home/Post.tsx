@@ -2,62 +2,103 @@
 import { Link } from "react-router-dom";
 import { useGetpostQuery } from "../../Redux/Api/getPost";
 import Heading from "../../component/Heading";
-// import useScrollGrow from "@/Hook/ScrollGrowHook";
 import { motion } from "framer-motion";
 import Spinner from "@/component/Spinner";
-const Post = () => {
-  // const { style, componentRef } = useScrollGrow();
 
+const Post = () => {
   const { data, isLoading, isSuccess } = useGetpostQuery("");
+
   if (isLoading) {
-    return <Spinner />;
+    return (
+      <div className="flex justify-center items-center h-64">
+        <Spinner />
+      </div>
+    );
   }
+
   return (
-    <div className="">
-      <Heading title="RELIF GOOD POST" subTitle="" />
-      {isSuccess && (
-        <div className="flex justify-between">
-          <span></span>
-          <Link
-            className="mr-3 bg-yellow-500 px-6 hover:bg-orange-900 text-white rounded-xl"
-            to="/relief-goods"
-          >
-            See All Post
-          </Link>
-        </div>
-      )}
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-2">
-        {data?.data?.slice(0, 6)?.map((news: any) => (
-          <motion.div
-            // style={style}
-            // ref={componentRef}
-            className="w-full  bg-white border border-gray-200 rounded-t-xl shadow dark:bg-gray-800 dark:border-gray-700"
-          >
-            <Link to="#">
-              <img
-                className="rounded-t-xl h-[70%] w-full"
-                src={news.image}
-                alt="product image"
-              />
+    <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="mb-10 text-center">
+        <Heading
+          title="RELIEF GOODS POST"
+          subTitle="Discover available relief goods and contribute to those in need"
+        />
+
+        {isSuccess && (
+          <div className="flex justify-end mt-4">
+            <Link
+              className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-orange-500 hover:to-yellow-600 text-white font-medium rounded-full shadow-lg transition-all duration-300"
+              to="/relief-goods"
+            >
+              See All Posts
+              <svg
+                className="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
             </Link>
-            <div className="px-5 pb-5 h-[30%]">
-              <Link to="#">
-                <h5 className="text-xl font-semibold tracking-tight text-blue-900 dark:text-white">
-                  {news.title}
-                </h5>
-              </Link>
-              <span className="text-2 font-bold text-yellow-500 dark:text-white">
-                Category: {news.category}
-              </span>
-              <div className="flex items-center justify-between">
-                <span className="lg:text-md text-lg font-bold text-gray-900 dark:text-white">
-                  Donate: {news.amount}
+          </div>
+        )}
+      </div>
+
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
+        {data?.data?.slice(0, 8)?.map((news: any, index: number) => (
+          <motion.div
+            key={news._id || index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ y: -5 }}
+            className="w-full bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 dark:bg-gray-800 flex flex-col h-full"
+          >
+            <Link to={`/relief-goods/${news.title}`}>
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  src={news.image}
+                  alt={news.title}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+            </Link>
+
+            <div className="p-6 flex flex-col flex-grow">
+              <div className="mb-3">
+                <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-yellow-500 uppercase bg-yellow-100 rounded-full dark:bg-yellow-800/50">
+                  {news.category}
                 </span>
+              </div>
+
+              <Link to={`/relief-goods/${news.title}`} className="flex-grow">
+                <h3 className="mb-2 text-xl font-bold text-gray-800 dark:text-white line-clamp-2">
+                  {news.title}
+                </h3>
+                <p className="mb-4 text-gray-600 dark:text-gray-300 line-clamp-2">
+                  {news.description ||
+                    "Help support this cause with your donation"}
+                </p>
+              </Link>
+
+              <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div>
+                  <span className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                    ${news.amount} raised
+                  </span>
+                </div>
                 <Link
                   to={`/relief-goods/${news.title}`}
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-1.5 text-center dark:bg-blue-600  dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-300"
                 >
-                  View Details
+                  Donate Now
                 </Link>
               </div>
             </div>
