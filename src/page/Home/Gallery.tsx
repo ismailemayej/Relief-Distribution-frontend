@@ -8,29 +8,31 @@ const Gallery = () => {
   const { data } = useGetGalleryDataQuery("");
   const { style, componentRef } = useScrollGrow();
 
-  const styles = "bg-white-600 border rounded-xl lg:p-1 p-1";
   return (
-    <motion.div style={style} ref={componentRef}>
-      <Heading title="GALLERY" subTitle="" />
-      <div className="grid lg:grid-cols-6 md:grid-cols-2 grid-cols-1 w-full lg:auto-rows-[300px] gap-1 lg:my-3">
+    <motion.section
+      style={style}
+      ref={componentRef}
+      className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+    >
+      <Heading title="Gallery" subTitle="Moments captured from our events" />
+
+      <div className="grid gap-2 mt-6 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 auto-rows-[200px] lg:auto-rows-[300px]">
         {data?.data?.map((item: any, i: number) => (
           <div
             key={i}
-            className={`${styles} ${
+            className={`overflow-hidden rounded-xl group shadow-sm border ${
               i === 0 || i === 1 || i === 5 || i === 2 ? "lg:col-span-2" : ""
             } ${i === 2 ? "lg:row-span-2" : ""}`}
           >
-            <div className="w-full h-[100%]">
-              <img
-                className="transition hover:scale-105 hover:delay-75 w-[100%] h-[100%] object-cover rounded-xl"
-                src={item.image}
-                alt={item.EventName}
-              />
-            </div>
+            <img
+              src={item.image}
+              alt={item.EventName || "Gallery Image"}
+              className="w-full h-full object-cover transform duration-300 group-hover:scale-105"
+            />
           </div>
         ))}
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

@@ -1,10 +1,38 @@
-const Spinner = () => {
+import { FC } from "react";
+
+interface SpinnerProps {
+  size?: "sm" | "md" | "lg" | "xl";
+  color?: "primary" | "secondary" | "danger" | "success";
+  className?: string;
+  label?: string;
+}
+
+const Spinner: FC<SpinnerProps> = ({
+  size = "md",
+  color = "primary",
+  className = "",
+  label = "Loading...",
+}) => {
+  const sizeClasses = {
+    sm: "w-4 h-4",
+    md: "w-8 h-8",
+    lg: "w-12 h-12",
+    xl: "w-16 h-16",
+  };
+
+  const colorClasses = {
+    primary: "fill-blue-600 text-gray-200",
+    secondary: "fill-purple-600 text-gray-200",
+    danger: "fill-red-600 text-gray-200",
+    success: "fill-green-600 text-gray-200",
+  };
+
   return (
-    <div className="text-center">
+    <div className={`flex flex-col items-center justify-center ${className}`}>
       <div role="status">
         <svg
           aria-hidden="true"
-          className="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+          className={`${sizeClasses[size]} ${colorClasses[color]} animate-spin`}
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,15 +46,13 @@ const Spinner = () => {
             fill="currentFill"
           />
         </svg>
-        <span className="sr-only">Loading...</span>
+        <span className="sr-only">{label}</span>
       </div>
+      {label && label !== "Loading..." && (
+        <span className="mt-2 text-sm text-gray-500">{label}</span>
+      )}
     </div>
   );
 };
 
 export default Spinner;
-
-
-
-
- 

@@ -15,30 +15,22 @@ const Testimonials = () => {
   const settings = {
     dots: true,
     infinite: false,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 3,
-    initialSlide: 0,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
+          slidesToScroll: 1,
           dots: true,
         },
       },
       {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-      {
-        breakpoint: 480,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -46,33 +38,37 @@ const Testimonials = () => {
       },
     ],
   };
+
   return (
-    <div className="">
-      <Heading title="TESTIMONIALS" subTitle="" />
-      <Slider {...settings}>
-        {data?.data?.map((r: any) => (
-          <div className="w-full slider-container border hover:bg-slate-200 hover:transition-shadow hover:text-white text-black rounded-xl bg-white h-[312px] w-full mt-3">
-            <div className="flex bg-slate-100 p-2">
-              <img
-                className="rounded-full border h-[50px] ml-1 w-[50px]"
-                src={r.profileImage}
-                alt=""
-              />
-              <span className="pl-3">
-                <h3 className="lg:text-[25px] text-[20px] text-blue-900 font-medium">
-                  {r.name}
-                </h3>
-                <p className="text-[15px] text-neutral-600">{r.position}</p>
-              </span>
+    <div className="py-12 bg-gradient-to-br from-blue-50 to-white">
+      <div className="max-w-6xl mx-auto px-4">
+        <Heading title="TESTIMONIALS" subTitle="What our clients say" />
+        <Slider {...settings}>
+          {data?.data?.map((r: any, idx: number) => (
+            <div key={idx} className="px-3">
+              <div className="bg-white rounded-xl shadow-md p-6 h-[280px] flex flex-col justify-between hover:shadow-lg transition-shadow duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="bg-blue-100 text-blue-800 rounded-full w-12 h-12 flex items-center justify-center font-semibold text-xl">
+                    {r.name?.charAt(0).toUpperCase() || "V"}
+                  </div>
+                  <h3 className="ml-4 text-xl font-semibold text-gray-800">
+                    {r.name}
+                  </h3>
+                </div>
+                <div className="text-gray-700 text-md italic px-1">
+                  <span className="text-3xl text-orange-400 font-serif leading-none">
+                    “
+                  </span>
+                  {r.review}
+                  <span className="text-3xl text-orange-400 font-serif leading-none">
+                    ”
+                  </span>
+                </div>
+              </div>
             </div>
-            <hr />
-            <p className="mt-5 pb-[-20] px-3 text-lg text-orange-900">
-              <span>"</span>
-              {r.review} <span>"</span>
-            </p>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
